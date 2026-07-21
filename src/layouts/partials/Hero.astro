@@ -1,11 +1,53 @@
 ---
-/* Hero strony głównej.
-   Na razie tworzymy prosty komponent testowy.
-   W kolejnych krokach dodamy zdjęcie, przyciski i pełny układ. */
+import { Image } from "astro:assets";
 ---
 
-<section class="section">
-  <div class="container">
-    <h1>Hero działa 🎉</h1>
+<section
+  class="relative isolate flex min-h-[34rem] items-center overflow-hidden bg-navy py-20 sm:min-h-[38rem] lg:min-h-[42rem] lg:py-28"
+>
+  <Image
+    src="/images/baner-blok.png"
+    alt=""
+    width={1040}
+    height={1512}
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    class="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+  />
+  <div class="absolute inset-0 -z-10 bg-navy/20" aria-hidden="true"></div>
+  <div
+    class="absolute inset-0 -z-10 bg-linear-to-r from-navy via-navy/85 to-transparent"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="container w-full">
+    <div class="max-w-2xl">
+      <p
+        class="mb-4 font-secondary text-base font-bold tracking-[0.16em] text-white/80 uppercase"
+      >
+        Projekty budowlane i instalacyjne
+      </p>
+      <h1 class="text-white">Projekty Dębski</h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/90 md:text-xl">
+        Tworzymy projekty sanitarne oraz świadectwa charakterystyki
+        energetycznej — rzeczowo, terminowo i z dbałością o każdy detal.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a
+          class="inline-flex min-h-12 items-center justify-center rounded-sm bg-white px-6 py-3 font-semibold text-navy transition hover:bg-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          href="/kontakt"
+        >
+          Uzyskaj wycenę
+        </a>
+        <a
+          class="inline-flex min-h-12 items-center justify-center rounded-sm border border-white/70 px-6 py-3 font-semibold text-white transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          href="/projekty"
+        >
+          Zobacz ofertę
+        </a>
+      </div>
+    </div>
   </div>
 </section>
