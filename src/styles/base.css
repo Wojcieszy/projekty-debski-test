@@ -1,5 +1,5 @@
 html {
-  @apply text-base-sm md:text-base;
+  @apply scroll-smooth text-base-sm motion-reduce:scroll-auto md:text-base;
 }
 
 body {
