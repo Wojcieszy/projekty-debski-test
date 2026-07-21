@@ -9,7 +9,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 const { footer }: { footer: { name: string; url: string }[] } = menu;
 ---
 
-<footer class="bg-light dark:bg-darkmode-light">
+<footer class="bg-brand text-white">
   <div class="container">
     <div class="row items-center py-10">
       <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
@@ -20,21 +20,27 @@ const { footer }: { footer: { name: string; url: string }[] } = menu;
           {
             footer.map((menu) => (
               <li class="m-3 inline-block">
-                <a href={menu.url}>{menu.name}</a>
+                <a
+                  class="rounded-sm text-white/85 transition hover:text-sand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                  href={menu.url}
+                >
+                  {menu.name}
+                </a>
               </li>
             ))
           }
         </ul>
       </div>
       <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:mt-0 lg:text-right">
-        <Social source={social.main} className="social-icons" />
+        <Social
+          source={social.main}
+          className="social-icons footer-social-icons"
+        />
       </div>
     </div>
   </div>
-  <div class="border-t border-border py-7 dark:border-darkmode-border">
-    <div
-      class="container text-center text-text-light dark:text-darkmode-text-light"
-    >
+  <div class="border-t border-white/15 py-5">
+    <div class="container text-center text-sm text-white/65">
       <p set:html={markdownify(config.params.copyright)} />
     </div>
   </div>
