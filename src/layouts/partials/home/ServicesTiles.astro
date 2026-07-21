@@ -1,38 +1,38 @@
 ---
-/* Import uniwersalnego komponentu kafelka */
 import ServiceCard from "@/components/ServiceCard.astro";
 ---
 
-<section class="section">
+<section class="pb-28 lg:pb-36">
   <div class="container">
+    <div class="mx-auto max-w-[1200px]">
+      <div class="mx-auto mb-14 max-w-xl text-center lg:mb-16">
+        <h2 class="text-3xl leading-tight text-text-dark lg:text-4xl">
+          Nasze usługi
+        </h2>
+        <p class="mt-5 text-lg text-text">
+          Wybierz usługę, która Cię interesuje.
+        </p>
+      </div>
 
-    <!-- Nagłówek sekcji -->
-    <div class="mb-12 text-center">
-      <h2>Nasze usługi</h2>
+      <div class="grid items-stretch gap-7 md:grid-cols-2 lg:gap-8">
+        <ServiceCard
+          title="Świadectwa charakterystyki energetycznej"
+          description="Sporządzanie świadectw dla mieszkań, domów i lokali użytkowych."
+          href="/swiadectwa/"
+          image="/images/services/sche-kwiaty.jpg"
+          imageWidth={1200}
+          imageHeight={1600}
+        />
 
-      <p class="mt-4 text-text">
-        Wybierz usługę, która Cię interesuje.
-      </p>
+        <ServiceCard
+          title="Projekty budowlane"
+          description="Projekty instalacji wodociągowych, kanalizacyjnych i grzewczych."
+          href="/projekty/"
+          image="/images/services/sanitarne.jpg"
+          imageWidth={1280}
+          imageHeight={960}
+        />
+      </div>
     </div>
-
-    <!-- Kafelki -->
-    <div class="grid gap-8 lg:grid-cols-2">
-
-      <ServiceCard
-        title="Świadectwa charakterystyki energetycznej"
-        description="Sporządzanie świadectw dla mieszkań, domów i lokali użytkowych."
-        href="/swiadectwa/"
-        image="/images/services/sche-kwiaty.jpg"
-      />
-
-      <ServiceCard
-        title="Projekty sanitarne"
-        description="Projekty instalacji wodociągowych, kanalizacyjnych i grzewczych."
-        href="/projekty/"
-        image="/images/services/sanitarne.jpg"
-      />
-
-    </div>
-
   </div>
 </section>
