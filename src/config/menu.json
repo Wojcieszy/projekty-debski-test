@@ -1,0 +1,38 @@
+{
+  "main": [
+    {
+      "name": "Świadectwa",
+      "url": "/swiadectwa"
+    },
+    {
+      "name": "Projekty",
+      "url": "/projekty"
+    },
+    {
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
+      "name": "Kontakt",
+      "url": "/kontakt"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Świadectwa",
+      "url": "/swiadectwa"
+    },
+    {
+      "name": "Projekty",
+      "url": "/projekty"
+    },
+    {
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
+      "name": "Kontakt",
+      "url": "/kontakt"
+    }
+  ]
+}

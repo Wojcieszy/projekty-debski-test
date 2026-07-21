@@ -1,0 +1,68 @@
+---
+/**
+ * Etapy współpracy.
+ * Każdy obiekt odpowiada jednemu krokowi.
+ */
+const steps = [
+  {
+    number: "01",
+    title: "Kontakt",
+    description:
+      "Skontaktuj się telefonicznie lub przez formularz i podaj podstawowe informacje o nieruchomości.",
+  },
+  {
+    number: "02",
+    title: "Przekazanie danych",
+    description:
+      "Prześlij niezbędne informacje i dokumenty potrzebne do przygotowania świadectwa.",
+  },
+  {
+    number: "03",
+    title: "Opracowanie świadectwa",
+    description:
+      "Przygotowuję świadectwo zgodnie z obowiązującymi przepisami i wpisuję je do rejestru.",
+  },
+  {
+    number: "04",
+    title: "Gotowy dokument",
+    description:
+      "Otrzymujesz kompletne świadectwo charakterystyki energetycznej w ustalonym terminie.",
+  },
+];
+---
+
+<section class="section pt-0">
+  <div class="container">
+
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h2>Jak wygląda współpraca?</h2>
+
+      <p class="mt-4 text-text">
+        Cały proces jest prosty i składa się z kilku kroków.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      {
+        steps.map((step) => (
+          <article class="rounded-xl bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+            <div class="mb-6 text-4xl font-bold text-primary">
+              {step.number}
+            </div>
+
+            <h3 class="mb-4 text-xl font-semibold text-dark">
+              {step.title}
+            </h3>
+
+            <p class="text-text">
+              {step.description}
+            </p>
+
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

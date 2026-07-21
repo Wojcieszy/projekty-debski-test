@@ -1,0 +1,58 @@
+---
+/**
+ * Lista najczęściej zadawanych pytań.
+ * Każdy obiekt odpowiada jednemu pytaniu i odpowiedzi.
+ */
+const faqs = [
+  {
+    question: "Czy świadectwo jest obowiązkowe przy sprzedaży mieszkania?",
+    answer:
+      "Tak, w większości przypadków przy sprzedaży nieruchomości należy przekazać nabywcy świadectwo charakterystyki energetycznej.",
+  },
+  {
+    question: "Czy świadectwo jest wymagane przy wynajmie?",
+    answer:
+      "Tak. Wynajmujący powinien przekazać najemcy świadectwo charakterystyki energetycznej.",
+  },
+  {
+    question: "Jak długo ważne jest świadectwo?",
+    answer:
+      "Świadectwo jest ważne przez 10 lat, o ile w budynku nie wykonano prac wpływających na jego charakterystykę energetyczną.",
+  },
+  {
+    question: "Jakie dokumenty będą potrzebne?",
+    answer:
+      "Zakres dokumentów zależy od rodzaju nieruchomości. Szczegółową listę ustalimy podczas kontaktu.",
+  },
+];
+---
+
+<section class="section pt-0">
+  <div class="container">
+
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h2>Najczęściej zadawane pytania</h2>
+
+      <p class="mt-4 text-text">
+        Odpowiedzi na pytania, które najczęściej zadają moi klienci.
+      </p>
+    </div>
+
+    <div class="space-y-6">
+      {
+        faqs.map((faq) => (
+          <article class="rounded-xl bg-white p-8 shadow-sm">
+            <h3 class="mb-3 text-xl font-semibold">
+              {faq.question}
+            </h3>
+
+            <p class="text-text">
+              {faq.answer}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

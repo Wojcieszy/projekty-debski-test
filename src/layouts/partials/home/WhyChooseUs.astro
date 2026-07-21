@@ -1,0 +1,53 @@
+---
+/**
+ * Lista najważniejszych atutów firmy.
+ * Każdy obiekt odpowiada jednej karcie.
+ */
+const features = [
+  {
+    title: "Terminowa realizacja",
+    description: "Szanuję Twój czas i dotrzymuję ustalonych terminów.",
+  },
+  {
+    title: "Zgodność z przepisami",
+    description: "Dokumentacja przygotowywana zgodnie z obowiązującym prawem.",
+  },
+  {
+    title: "Indywidualne podejście",
+    description: "Każde zlecenie traktuję indywidualnie i z pełnym zaangażowaniem.",
+  },
+  {
+    title: "Szybki kontakt",
+    description: "Odpowiadam na pytania i pomagam na każdym etapie współpracy.",
+  },
+];
+---
+<section class="section">
+  <div class="container">
+
+    <!-- Nagłówek sekcji -->
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h2>Dlaczego warto wybrać Projekty Dębski?</h2>
+
+      <p class="mt-4 text-text">
+        Każde zlecenie realizowane jest z dbałością o jakość,
+        terminowość i zgodność z obowiązującymi przepisami.
+      </p>
+    </div>
+<div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+  {features.map((feature) => (
+    <article class="rounded-xl bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+      <h3 class="mb-3 text-xl font-semibold text-dark">
+        {feature.title}
+      </h3>
+
+      <p class="text-text">
+        {feature.description}
+      </p>
+
+    </article>
+  ))}
+</div>
+  </div>
+</section>

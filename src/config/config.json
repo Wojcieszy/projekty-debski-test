@@ -1,0 +1,66 @@
+{
+  "site": {
+    "title": "Projekty Dębski",
+    "base_url": "https://projektydebski.pl",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
+    "logo_darkmode": "/images/logo-darkmode.png",
+    "logo_width": "60",
+    "logo_height": "60",
+    "logo_text": "Projekty Dębski"
+  },
+
+  "settings": {
+    "search": false,
+    "sticky_header": true,
+    "theme_switcher": false,
+    "default_theme": "light",
+    "pagination": 6,
+    "summary_length": 200,
+    "blog_folder": "blog"
+  },
+
+  "announcement": {
+    "enable": false,
+    "content": "",
+    "expire_days": 0
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "© Projekty Dębski"
+  },
+
+  "navigation_button": {
+    "enable": false,
+    "label": "",
+    "link": ""
+  },
+
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": ""
+  },
+
+  "disqus": {
+    "enable": false,
+    "shortname": "",
+    "settings": {}
+  },
+
+  "metadata": {
+    "meta_author": "Wojciech Dębski",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Świadectwa charakterystyki energetycznej oraz projekty sanitarne."
+  },
+
+  "llms": {
+    "generate_llms_txt": true,
+    "generate_llms_full_txt": true,
+    "generate_individual_md": true,
+    "include": [],
+    "exclude": []
+  }
+}

@@ -1,0 +1,24 @@
+---
+/* Import głównego layoutu strony */
+import Base from "@/layouts/Base.astro";
+
+import PageBanner from "@/layouts/partials/PageBanner.astro";
+
+import HomeIntro from "@/layouts/partials/home/HomeIntro.astro";
+
+/* Import sekcji z kafelkami usług */
+import ServicesTiles from "@/layouts/partials/home/ServicesTiles.astro";
+
+/* Import sekcji "Dlaczego warto" */
+import WhyChooseUs from "@/layouts/partials/home/WhyChooseUs.astro";
+---
+
+<Base>
+<PageBanner
+  title="Projekty Dębski"
+  subtitle="Świadectwa charakterystyki energetycznej oraz projekty sanitarne."
+/>
+<HomeIntro />
+<ServicesTiles />
+<WhyChooseUs />
+</Base>

@@ -1,0 +1,56 @@
+---
+const situations = [
+  {
+    title: "Sprzedaż nieruchomości",
+    description:
+      "Świadectwo jest wymagane przy sprzedaży domu, mieszkania lub lokalu.",
+  },
+  {
+    title: "Wynajem nieruchomości",
+    description:
+      "Dokument należy przekazać również najemcy przy zawieraniu umowy najmu.",
+  },
+  {
+    title: "Nowe budynki",
+    description:
+      "Świadectwo jest wymagane przy oddawaniu budynku do użytkowania w określonych przypadkach.",
+  },
+  {
+    title: "Pozostałe sytuacje",
+    description:
+      "Obowiązek zależy od rodzaju budynku i celu, w jakim jest wykorzystywany.",
+  },
+];
+---
+
+<section class="section pt-0">
+  <div class="container">
+
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h2>Kiedy świadectwo jest wymagane?</h2>
+
+      <p class="mt-4 text-text">
+        Przepisy określają kilka sytuacji, w których świadectwo charakterystyki energetycznej jest obowiązkowe.
+      </p>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        situations.map((item) => (
+          <article class="rounded-xl bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+            <h3 class="mb-4 text-xl font-semibold text-dark">
+              {item.title}
+            </h3>
+
+            <p class="text-text">
+              {item.description}
+            </p>
+
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

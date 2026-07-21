@@ -1,0 +1,40 @@
+---
+/* Wykorzystujemy komponent, który już stworzyliśmy */
+import ServiceCard from "@/components/ServiceCard.astro";
+---
+
+<section class="section pt-0">
+  <div class="container">
+
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+
+      <h2>
+        Dla jakiego budynku potrzebujesz świadectwa?
+      </h2>
+
+      <p class="mt-4 text-text">
+        Wybierz rodzaj nieruchomości, aby poznać szczegółowe informacje.
+      </p>
+
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2">
+
+      <ServiceCard
+        title="Świadectwo dla mieszkania"
+        description="Informacje dotyczące mieszkań i lokali mieszkalnych."
+        href="/swiadectwa/mieszkanie"
+        image="/images/services/sche-kwiaty.jpg"
+      />
+
+      <ServiceCard
+        title="Świadectwo dla domu jednorodzinnego"
+        description="Informacje dotyczące domów jednorodzinnych."
+        href="/swiadectwa/dom-jednorodzinny"
+        image="/images/services/sanitarne.jpg"
+      />
+
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+/* Główny layout strony */
+import Base from "@/layouts/Base.astro";
+
+/* Baner podstrony */
+import PageBanner from "@/layouts/partials/PageBanner.astro";
+
+import EnergyIntro from "@/layouts/partials/home/EnergyIntro.astro";
+
+import WhenRequired from "@/layouts/partials/home/WhenRequired.astro";
+
+import BuildingTypes from "@/layouts/partials/BuildingTypes.astro";
+
+import HowItWorks from "@/layouts/partials/home/HowItWorks.astro";
+
+import EnergyFaq from "@/layouts/partials/home/EnergyFaq.astro";
+
+import EnergyCta from "@/layouts/partials/home/EnergyCta.astro";
+---
+
+<Base
+  title="Świadectwa charakterystyki energetycznej"
+  description="Świadectwa charakterystyki energetycznej dla mieszkań, domów jednorodzinnych i lokali użytkowych."
+>
+  <PageBanner
+    title="Świadectwa charakterystyki energetycznej"
+    subtitle="Dokumenty zgodne z obowiązującymi przepisami dla mieszkań, domów i lokali użytkowych."
+  />
+
+<EnergyIntro />
+<WhenRequired />
+<BuildingTypes />
+<HowItWorks />
+<EnergyFaq />
+<EnergyCta />
+</Base>

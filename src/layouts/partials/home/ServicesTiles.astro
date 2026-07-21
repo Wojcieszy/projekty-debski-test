@@ -1,0 +1,38 @@
+---
+/* Import uniwersalnego komponentu kafelka */
+import ServiceCard from "@/components/ServiceCard.astro";
+---
+
+<section class="section">
+  <div class="container">
+
+    <!-- Nagłówek sekcji -->
+    <div class="mb-12 text-center">
+      <h2>Nasze usługi</h2>
+
+      <p class="mt-4 text-text">
+        Wybierz usługę, która Cię interesuje.
+      </p>
+    </div>
+
+    <!-- Kafelki -->
+    <div class="grid gap-8 lg:grid-cols-2">
+
+      <ServiceCard
+        title="Świadectwa charakterystyki energetycznej"
+        description="Sporządzanie świadectw dla mieszkań, domów i lokali użytkowych."
+        href="/swiadectwa/"
+        image="/images/services/sche-kwiaty.jpg"
+      />
+
+      <ServiceCard
+        title="Projekty sanitarne"
+        description="Projekty instalacji wodociągowych, kanalizacyjnych i grzewczych."
+        href="/projekty/"
+        image="/images/services/sanitarne.jpg"
+      />
+
+    </div>
+
+  </div>
+</section>
