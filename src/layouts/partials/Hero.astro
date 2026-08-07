@@ -1,11 +1,61 @@
 ---
-/* Hero strony głównej.
-   Na razie tworzymy prosty komponent testowy.
-   W kolejnych krokach dodamy zdjęcie, przyciski i pełny układ. */
+import { Image } from "astro:assets";
 ---
 
-<section class="section">
-  <div class="container">
-    <h1>Hero działa 🎉</h1>
+<section
+  class="relative isolate flex min-h-[23rem] items-center overflow-hidden bg-navy py-12 sm:min-h-[25rem] lg:min-h-[28rem] lg:py-16"
+>
+  <Image
+    src="/images/baner-blok.webp"
+    alt=""
+    width={1040}
+    height={1512}
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    class="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+  />
+  <div class="absolute inset-0 -z-10 bg-navy/10" aria-hidden="true"></div>
+  <div
+    class="absolute inset-0 -z-10 bg-linear-to-r from-brand/85 via-brand/45 to-transparent"
+    aria-hidden="true"
+  >
   </div>
+
+  <div class="container w-full">
+  <div class="max-w-4xl">
+
+    <h1 class="text-4xl leading-tight text-white sm:text-4xl lg:text-4xl">
+      <span class="block">
+        Świadectwa charakterystyki
+      </span>
+         <span class="block">
+        energetycznej i projekty sanitarne
+      </span>
+
+    </h1>
+
+<div class="mt-6 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
+  <p>
+    Zajmuję się wykonywaniem świadectw charakterystyki energetycznej oraz
+    projektowaniem instalacji sanitarnych. Każde opracowanie przygotowuję
+    zgodnie z obowiązującymi przepisami, z dbałością o jakość i terminowość.
+    Współpracuję z doświadczonymi projektantami i ekspertami w swoich
+    dziedzinach.
+  </p>
+</div>
+
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <a
+        class="inline-flex min-h-13 items-center justify-center rounded-sm bg-sand px-7 py-3 font-semibold text-brand transition hover:bg-sand-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        href="/kontakt"
+      >
+        Kontakt
+      </a>
+
+
+    </div>
+
+  </div>
+</div>
 </section>

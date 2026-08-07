@@ -1,45 +1,88 @@
 ---
 const situations = [
   {
-    title: "Sprzedaż nieruchomości",
+    icon: "",
+    title: "🏠 Sprzedaż nieruchomości",
     description:
-      "Świadectwo jest wymagane przy sprzedaży domu, mieszkania lub lokalu.",
+      "Świadectwo charakterystyki energetycznej należy przekazać nabywcy przy sprzedaży domu, mieszkania lub lokalu.",
+
+    law:
+      "Ustawa o charakterystyce energetycznej budynków – art. 11 ust. 1 pkt 1",
+
+    quote:
+      "„Właściciel (...) przekazuje odpowiednio nabywcy (...) świadectwo charakterystyki energetycznej – przy sporządzeniu aktu notarialnego umowy zbycia prawa własności albo spółdzielczego własnościowego prawa do lokalu.”",
   },
+
   {
-    title: "Wynajem nieruchomości",
+    icon: "",
+    title: "🔑 Wynajem nieruchomości",
+
     description:
-      "Dokument należy przekazać również najemcy przy zawieraniu umowy najmu.",
+      "Świadectwo należy przekazać również najemcy przy zawieraniu nowej umowy najmu.",
+
+    law:
+      "Ustawa o charakterystyce energetycznej budynków – art. 11 ust. 1 pkt 2",
+
+    quote:
+      "„(...) kopię świadectwa charakterystyki energetycznej (...) albo wydruk świadectwa (...) – przy zawarciu umowy najmu.”",
   },
+
   {
-    title: "Nowe budynki",
+    icon: "",
+    title: "🏗️ Nowe budynki",
+
     description:
-      "Świadectwo jest wymagane przy oddawaniu budynku do użytkowania w określonych przypadkach.",
+      "Przy zawiadomieniu o zakończeniu budowy lub przy wniosku o pozwolenie na użytkowanie.",
+
+    law:
+      "Ustawa z dnia 7 lipca 1994 r. Prawo budowlane  Art. 57 ust. 1 pkt 6a",
+
+    quote:
+      "Do zawiadomienia o zakończeniu budowy obiektu budowlanego lub wniosku o udzielenie pozwolenia na użytkowanie inwestor jest obowiązany dołączyć: (...) 6a) kopię świadectwa charakterystyki energetycznej przekazanego w postaci papierowej albo wydruk świadectwa charakterystyki energetycznej przekazanego w postaci elektronicznej  (...).",
   },
+
   {
-    title: "Pozostałe sytuacje",
+    icon: "",
+    title: "💰 Ubieganie się o dofinansowanie",
+
     description:
-      "Obowiązek zależy od rodzaju budynku i celu, w jakim jest wykorzystywany.",
+      "W niektórych programach dofinansowań wymagane może być przedstawienie świadectwa charakterystyki energetycznej.",
+
+    law:
+      "Regulaminy poszczególnych programów (np. Czyste Powietrze, Moje Ciepło)",
+
+    quote:
+      "Obowiązek przedstawienia świadectwa nie wynika z jednej ustawy, lecz z warunków określonych w regulaminie danego programu.",
   },
 ];
 ---
 
-<section class="section pt-0">
+<section class="section section-light pt-10">
   <div class="container">
 
     <div class="mx-auto mb-12 max-w-3xl text-center">
       <h2>Kiedy świadectwo jest wymagane?</h2>
 
       <p class="mt-4 text-text">
-        Przepisy określają kilka sytuacji, w których świadectwo charakterystyki energetycznej jest obowiązkowe.
+        Najczęstsze sytuacje, w których świadectwo charakterystyki energetycznej
+        jest wymagane zgodnie z obowiązującymi przepisami.
       </p>
     </div>
 
     <div class="grid gap-6 sm:grid-cols-2">
+
       {
         situations.map((item) => (
-          <article class="rounded-xl bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
 
-            <h3 class="mb-4 text-xl font-semibold text-dark">
+          <article
+            class="rounded-xl bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+          >
+
+            <div class="mb-5 text-4xl">
+              {item.icon}
+            </div>
+
+            <h3 class="mb-4 text-2xl font-semibold text-dark">
               {item.title}
             </h3>
 
@@ -47,9 +90,29 @@ const situations = [
               {item.description}
             </p>
 
+            <div class="mt-6 border-t border-border pt-5">
+
+              <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-center">
+                Podstawa prawna
+              </p>
+
+              <p class="text-sm text-center">
+                {item.law}
+              </p>
+
+            </div>
+
+            <blockquote
+              class="mt-5 rounded-lg border-l-4 border-primary bg-theme-light p-4 text-sm italic leading-relaxed text-text"
+            >
+              {item.quote}
+            </blockquote>
+
           </article>
+
         ))
       }
+
     </div>
 
   </div>

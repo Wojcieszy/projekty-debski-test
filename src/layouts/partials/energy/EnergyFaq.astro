@@ -1,58 +1,90 @@
 ---
-/**
- * Lista najczęściej zadawanych pytań.
- * Każdy obiekt odpowiada jednemu pytaniu i odpowiedzi.
- */
 const faqs = [
+
   {
-    question: "Czy świadectwo jest obowiązkowe przy sprzedaży mieszkania?",
+    question: "Ile kosztuje świadectwo charakterystyki energetycznej?",
     answer:
-      "Tak, w większości przypadków przy sprzedaży nieruchomości należy przekazać nabywcy świadectwo charakterystyki energetycznej.",
-  },
-  {
-    question: "Czy świadectwo jest wymagane przy wynajmie?",
-    answer:
-      "Tak. Wynajmujący powinien przekazać najemcy świadectwo charakterystyki energetycznej.",
-  },
-  {
-    question: "Jak długo ważne jest świadectwo?",
-    answer:
-      "Świadectwo jest ważne przez 10 lat, o ile w budynku nie wykonano prac wpływających na jego charakterystykę energetyczną.",
+      "Cena zależy od rodzaju nieruchomości, standardowa cena za mieszkanie to 300 zł, a za dom 400 zł. Ceny mogą się różnić w zależności od złożoności, rozmiaru nieruchomości oraz zakresu opracowania.",
   },
   {
     question: "Jakie dokumenty będą potrzebne?",
     answer:
-      "Zakres dokumentów zależy od rodzaju nieruchomości. Szczegółową listę ustalimy podczas kontaktu.",
+      "Listę potrzebnych dokumentów i informacji przesyłam mailowo. Zestaw różni się w zależności od rodzaju nieruchomości i dostępnej dokumentacji. Zazwyczaj potrzebne są: rzuty kondygnacji, przekroje budynku, informacje o materiałach budowlanych, instalacjach oraz dane dotyczące ogrzewania i wentylacji. W przypadku mieszkań, większość z tych informacji można uzyskać od wspólnoty mieszkaniowej lub spółdzielni.",
+  },
+  {
+    question: "Jak długo ważne jest świadectwo?",
+    answer:
+      "Świadectwo charakterystyki energetycznej jest ważne przez 10 lat, o ile w międzyczasie nie wykonano prac wpływających na charakterystykę energetyczną budynku.",
+  },
+  {
+    question: "Jak długo trwa przygotowanie świadectwa?",
+    answer:
+      "Termin realizacji ustalany jest indywidualnie i zależy między innymi od rodzaju nieruchomości oraz kompletności przekazanych informacji. Zazwyczaj przygotowanie świadectwa zajmuje od dwóch dni do tygodnia.",
+  },
+  {
+    question: "Czy świadectwo otrzymam w formie elektronicznej?",
+    answer:
+      "Tak. Gotowe świadectwo przekazuję w formie elektronicznej, zeskanowany dokument podpisany odręcznie oraz w wersji z podpisem elektronicznym.",
+  },
+  {
+    question: "Czy istnieje możliwość otrzymania świadectwa w formie fizycznej?",
+    answer:
+      "Tak, istnieje możliwość otrzymania świadectwa w formie fizycznej. Gotowe świadectwo, wysyłam listownie lub innym preferowanym przez klienta sposobem. Cena w zależności od wybranego sposobu doręczenia.",
+  },
+
+    {
+    question: "Co jeśli nie posiadam rzutu mieszkania?",
+    answer:
+      "W przypadku mieszkań, większość potrzebnych informacji można uzyskać od wspólnoty mieszkaniowej lub spółdzielni. Jeśli jednak nie jest to możliwe, mogę umówić się na wizytę w celu dokonania pomiarów i zebrania niezbędnych danych.",
+  },
+
+  {
+    question: "Czy wykonuje świadectwa poza Warszawą?",
+    answer:
+      "Tak. Realizuję świadectwa również dla klientów z całej Polski, jeśli dostępna dokumentacja pozwala na przygotowanie opracowania. Dojazdy są mocno ograniczone, a w przypadku większych odległości preferuję przygotowanie świadectwa na podstawie dokumentacji i zdjęć.",
   },
 ];
 ---
 
-<section class="section pt-0">
+<section class="section section-white">
   <div class="container">
 
     <div class="mx-auto mb-12 max-w-3xl text-center">
       <h2>Najczęściej zadawane pytania</h2>
 
       <p class="mt-4 text-text">
-        Odpowiedzi na pytania, które najczęściej zadają moi klienci.
+        Odpowiedzi na pytania, które najczęściej zadają klienci przed zamówieniem
+        świadectwa charakterystyki energetycznej.
       </p>
     </div>
 
-    <div class="space-y-6">
-      {
-        faqs.map((faq) => (
-          <article class="rounded-xl bg-white p-8 shadow-sm">
-            <h3 class="mb-3 text-xl font-semibold">
-              {faq.question}
-            </h3>
+    <div class="mx-auto max-w-4xl space-y-4">
+  {
+    faqs.map((faq) => (
+      <details
+        class="group rounded-xl border border-border bg-white transition-all"
+      >
+        <summary
+          class="flex cursor-pointer list-none items-center justify-between p-6 text-xl font-semibold text-dark"
+        >
+          <span>{faq.question}</span>
 
-            <p class="text-text">
-              {faq.answer}
-            </p>
-          </article>
-        ))
-      }
-    </div>
+          <span
+            class="ml-6 text-2xl font-light transition-transform duration-200 group-open:rotate-45"
+          >
+            +
+          </span>
+        </summary>
+
+        <div class="px-6 pb-6">
+          <p class="text-text leading-relaxed">
+            {faq.answer}
+          </p>
+        </div>
+      </details>
+    ))
+  }
+</div>
 
   </div>
 </section>

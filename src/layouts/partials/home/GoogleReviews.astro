@@ -1,0 +1,186 @@
+---
+const googleUrl =
+  "https://www.google.com/maps/place/%C5%9Awiadectwa+Charakterystyki+Energetycznej+D%C4%99bski/@52.1701206,21.0235564,729m/data=!3m1!1e3!4m6!3m5!1s0xa337ce2e9ee9dc99:0xa05762105ae41134!8m2!3d52.1701206!4d21.0235564!16s%2Fg%2F11n45msp2g?entry=ttu&g_ep=EgoyMDI2MDgwMi4wIKXMDSoASAFQAw%3D%3D";
+
+const rating = "5,0";
+
+
+const reviews = [
+  {
+    author: "A.G",
+    date: "",
+    text:
+      "Świadectwo energetyczne zostało wykonane błyskawicznie, a cały proces przebiegł sprawnie i bezproblemowo. Świetny kontakt, szybka odpowiedź, jasne wyjaśnienia. Na plus znajomość specyfiki budynku. Jeśli ktoś szuka fachowej i terminowej realizacji, to zdecydowanie właściwy wybór!",
+  },
+  {
+    author: "P.M",
+    date: "",
+    text:
+      "Świadectwo wykonane bardzo szybko. Bez komplikacji. Obsługa rzetelna i fachowa. Bezproblemowy kontakt. Polecam!!!",
+  },
+  {
+    author: "J.J",
+    date: "",
+    text:
+      "Wszystko poszło sprawnie i bez problemów. Polecam!!!",
+  },
+];
+---
+
+<section class="section bg-mist pt-10">
+  <div class="container">
+
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h2>Opinie klientów</h2>
+
+      <p class="mt-4 text-text">
+        Działam na terenie Warszawy i okolic, a jeśli usługa nie wymaga wizji
+        lokalnej, przygotowuję świadectwa w całej Polsce.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+
+     <!-- MAPA -->
+
+<div class="overflow-hidden rounded-2xl bg-white shadow-sm">
+
+  <a
+    href={googleUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="group relative block"
+  >
+
+    <img
+      src="/images/blog/mapa.webp"
+      alt="Lokalizacja firmy Projekty Dębski"
+      class="h-[500px] w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+    />
+
+    <div
+      class="absolute bottom-6 right-6 rounded-lg bg-white/95 px-5 py-3 font-semibold text-dark shadow-lg backdrop-blur-sm transition group-hover:bg-white"
+    >
+      Otwórz w Google Maps →
+    </div>
+
+  </a>
+
+</div>
+
+      <!-- KARTA GOOGLE -->
+
+      <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm">
+
+        <div class="flex items-center gap-4">
+
+          <img
+            src="/images/Google__G__logo.svg"
+            alt="Google"
+            class="h-12 w-12"
+          />
+
+          <div>
+
+            <h3 class="text-xl font-bold text-dark">
+              Świadectwa Charakterystyki Energetycznej Dębski
+            </h3>
+
+            <p class="text-text">
+              Warszawa, Służew
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="mt-4">
+
+          <div class="text-3xl">
+            ⭐⭐⭐⭐⭐
+          </div>
+
+          <div class="mt-3 text-3xl font-bold text-dark">
+            {rating}
+          </div>
+
+          <p class="mt-3 text-lg text-text">
+            na podstawie <strong>prawdziwych</strong> opinii
+          </p>
+
+        </div>
+
+        <ul class="mt-6 space-y-3 text-text">
+
+          <li>✓ Lokalna firma</li>
+
+          <li>✓ Bezpośredni kontakt</li>
+
+          <li>✓ Terminowa realizacja</li>
+
+          <li>✓ Projekty i świadectwa</li>
+
+        </ul>
+
+        <a
+          href={googleUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-auto inline-flex min-h-13 items-center justify-center rounded-sm bg-sand px-7 py-3 font-semibold text-brand transition hover:bg-sand-light"
+        >
+          Zobacz wszystkie opinie →
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- OPINIE -->
+
+    <div class="mt-10 grid gap-6 lg:grid-cols-3">
+
+      {
+        reviews.map((review) => (
+
+          <article class="rounded-2xl bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+            <div class="mb-4 text-xl">
+              ⭐⭐⭐⭐⭐
+            </div>
+
+            <p class="leading-relaxed text-text">
+              "{review.text}"
+            </p>
+
+            <div class="mt-6 flex items-center justify-between">
+
+              <div>
+
+                <p class="font-semibold text-dark">
+                  {review.author}
+                </p>
+
+                <p class="text-sm text-text-light">
+                  {review.date}
+                </p>
+
+              </div>
+
+              <img
+                src="/images/Google__G__logo.svg"
+                alt="Google"
+                class="h-6 w-6"
+              />
+
+            </div>
+
+          </article>
+
+        ))
+      }
+
+    </div>
+
+  </div>
+
+</section>

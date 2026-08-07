@@ -1,0 +1,44 @@
+---
+/**
+ * Karuzela artykułów oparta wyłącznie o CSS.
+ *
+ * Nie pobiera danych i ich nie filtruje.
+ * Wyświetla przekazaną listę artykułów w poziomie.
+ */
+
+import ArticleCard from "./ArticleCard.astro";
+
+interface Props {
+  articles: any[];
+}
+
+const { articles } = Astro.props;
+---
+
+<div
+  class="
+    flex
+    gap-6
+    overflow-x-auto
+    snap-x
+    snap-mandatory
+    scroll-smooth
+    pb-4
+  "
+>
+
+  {
+    articles.map((article) => (
+      <div
+        class="
+          w-[320px]
+          shrink-0
+          snap-start
+        "
+      >
+        <ArticleCard data={article} />
+      </div>
+    ))
+  }
+
+</div>

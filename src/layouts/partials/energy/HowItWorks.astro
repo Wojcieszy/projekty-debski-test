@@ -6,52 +6,64 @@
 const steps = [
   {
     number: "01",
-    title: "Kontakt",
+    title: "Skontaktuj się ze mną",
     description:
-      "Skontaktuj się telefonicznie lub przez formularz i podaj podstawowe informacje o nieruchomości.",
+      "Zadzwoń lub napisz wiadomość. Krótko opisz, czego potrzebujesz, a podpowiem, jakie informacje będą potrzebne do wykonania świadectwa.",
   },
   {
     number: "02",
-    title: "Przekazanie danych",
+    title: "Prześlij informacje o nieruchomości",
     description:
-      "Prześlij niezbędne informacje i dokumenty potrzebne do przygotowania świadectwa.",
+      "Większość spraw załatwiam zdalnie. Wystarczy przesłać dokumenty i informacje o mieszkaniu lub domu. Listę potrzebnych danych, przesyłam mailowo. Jeżeli czegoś brakuje, pomogę ustalić, skąd można to uzyskać.",
   },
   {
     number: "03",
-    title: "Opracowanie świadectwa",
+    title: "Przygotowuję świadectwo",
     description:
-      "Przygotowuję świadectwo zgodnie z obowiązującymi przepisami i wpisuję je do rejestru.",
+      "Na podstawie otrzymanych informacji wykonuję świadectwo charakterystyki energetycznej zgodnie z obowiązującymi przepisami. W razie potrzeby kontaktuję się z Tobą, jeśli konieczne jest doprecyzowanie danych.",
   },
   {
     number: "04",
-    title: "Gotowy dokument",
+    title: "Sprawdzasz dane",
     description:
-      "Otrzymujesz kompletne świadectwo charakterystyki energetycznej w ustalonym terminie.",
+      "Przed zakończeniem zlecenia możesz sprawdzić najważniejsze informacje zawarte w świadectwie. Jeżeli zauważysz nieścisłości, poprawię je przed wydaniem dokumentu.",
+  },
+  {
+    number: "05",
+    title: "Zapłata",
+    description:
+      "Po przygotowaniu świadectwa przesyłam informacje dotyczące płatności. Cały proces jest prosty i nie wymaga osobistego spotkania.",
+  },
+  {
+    number: "06",
+    title: "Otrzymujesz świadectwo",
+    description:
+      "Gotowe świadectwo przesyłam elektronicznie w formacie PDF. W większości przypadków to w zupełności wystarcza i pozwala szybko załatwić formalności. Jeżeli z jakiegoś powodu potrzebujesz wersji papierowej, możemy ustalić indywidualny sposób jej przekazania.",
   },
 ];
 ---
 
-<section class="section pt-0">
+<section class="section section-white pt-10">
   <div class="container">
 
     <div class="mx-auto mb-12 max-w-3xl text-center">
-      <h2>Jak wygląda współpraca?</h2>
+      <h2>Jak wygląda cały proces?</h2>
 
       <p class="mt-4 text-text">
         Cały proces jest prosty i składa się z kilku kroków.
       </p>
     </div>
 
-    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {
         steps.map((step) => (
           <article class="rounded-xl bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
 
-            <div class="mb-6 text-4xl font-bold text-primary">
-              {step.number}
-            </div>
+           <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-brand text-xl font-bold text-white">
+  {step.number}
+</div>
 
-            <h3 class="mb-4 text-xl font-semibold text-dark">
+            <h3 class="mb-4 text-2xl font-semibold text-dark">
               {step.title}
             </h3>
 

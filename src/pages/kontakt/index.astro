@@ -3,75 +3,22 @@
 import Base from "@/layouts/Base.astro";
 
 /* Baner */
-import PageBanner from "@/layouts/partials/PageBanner.astro";
+
+
+/* Komponenty strony kontakt */
+
+import ContactDetails from "@/layouts/partials/contact/ContactDetails.astro";
+import GoogleReviews from "@/layouts/partials/home/GoogleReviews.astro";
 ---
 
 <Base
   title="Kontakt | Projekty Dębski"
   description="Skontaktuj się z firmą Projekty Dębski w sprawie świadectw charakterystyki energetycznej oraz projektów budowlanych."
 >
-  <PageBanner
-    title="Kontakt"
-    subtitle="Masz pytania? Skontaktuj się ze mną."
-  />
 
-  <section class="section">
-    <div class="container">
 
-      <div class="mx-auto max-w-5xl">
+  <ContactDetails />
 
-        <div class="mb-12 text-center">
-          <h2>Skontaktuj się</h2>
-
-          <p class="mt-4 text-text">
-            Chętnie odpowiem na pytania dotyczące świadectw charakterystyki
-            energetycznej oraz projektów budowlanych.
-          </p>
-        </div>
-
-        <div class="grid gap-10 lg:grid-cols-2">
-
-          <div>
-
-            <h3 class="mb-6">Dane kontaktowe</h3>
-
-            <ul class="space-y-4">
-
-              <li>
-                <strong>Telefon:</strong><br />
-                +48 123 456 789
-              </li>
-
-              <li>
-                <strong>E-mail:</strong><br />
-                kontakt@projektydebski.pl
-              </li>
-
-              <li>
-                <strong>Obszar działania:</strong><br />
-                Województwo dolnośląskie oraz realizacja zleceń online.
-              </li>
-
-            </ul>
-
-          </div>
-
-          <div>
-
-            <h3 class="mb-6">Formularz kontaktowy</h3>
-
-            <p>
-              W tym miejscu dodamy formularz kontaktowy po wyborze docelowego
-              sposobu obsługi wiadomości.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
+<GoogleReviews />
 
 </Base>

@@ -1,0 +1,98 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  title = "Dlaczego warto ze mną współpracować?",
+  subtitle =
+    "",
+} = Astro.props;
+
+const features = [
+
+  {
+    title: "Zgodność z przepisami",
+    description:
+      "Każde świadectwo przygotowuję zgodnie z obowiązującymi przepisami i wpisuję do Centralnego Rejestru Charakterystyki Energetycznej Budynków.",
+  },
+  {
+    title: "Terminowa realizacja",
+    description:
+      "Ustalam realny termin wykonania i dokładam starań, aby został dotrzymany. Jeśli podczas opracowania potrzebne będą dodatkowe informacje, od razu się z Tobą kontaktuję.",
+  },
+
+   {
+    title: "Indywidualne podejście",
+    description:
+      "Każda nieruchomość jest inna. Analizuję każdy przypadek indywidualnie i pomagam przejść przez cały proces możliwie najprościej.",
+  },
+
+    {
+    title: "Stały kontakt i pomoc",
+    description:
+      "Na każdym etapie realizacji możesz skontaktować się ze mną telefonicznie lub mailowo i uzyskać odpowiedzi na swoje pytania. Zależy mi, aby cały proces był możliwie prosty również dla osób, które nie mają doświadczenia z dokumentacją techniczną. ",
+  },
+
+
+ 
+    {
+    title: "Współpraca z ekspertami",
+    description:
+      "W swojej pracy współpracuję z doświadczonymi projektantami oraz inżynierami różnych specjalności. Dzięki temu w bardziej złożonych przypadkach mogę skonsultować rozwiązania i zapewnić rzetelne opracowanie dokumentacji.",
+  },
+    {
+    title: "Lokalny magister inżynier",
+    description:
+      "Nie trafiasz do anonimowego biura ani internetowego generatora. Od początku do końca kontaktujesz się bezpośrednio ze mną.",
+    link: "/artykul/dlaczego-warto-wybrac-projekty-debski-zamiast-generatorow-online",
+    linkText:
+      "Dlaczego warto wybrać lokalnego specjalistę zamiast internetowy generator?",
+  },
+ 
+];
+---
+
+<section class="section section-light pt-10">
+  <div class="container">
+
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h2>{title}</h2>
+
+      <p class="mt-4 text-text">
+        {subtitle}
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {
+        features.map((feature) => (
+          <article class="rounded-xl bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+      <h3 class="mb-4 text-2xl font-semibold text-dark">
+              {feature.title}
+            </h3>
+
+            <p class="text-text">
+              {feature.description}
+            </p>
+
+            {
+              feature.link && (
+                <a
+                  href={feature.link}
+                  class="mt-5 inline-flex font-semibold text-brand hover:underline"
+                >
+                  {feature.linkText} →
+                </a>
+              )
+            }
+
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

@@ -4,44 +4,27 @@ import Base from "@/layouts/Base.astro";
 
 /* Baner */
 import PageBanner from "@/layouts/partials/PageBanner.astro";
+
+/* Sekcje */
+
+import ProjectServices from "@/layouts/partials/projects/ProjectServices.astro";
+import ProjectCta from "@/layouts/partials/projects/ProjectCta.astro";
 ---
 
 <Base
-  title="Projekty budowlane"
-  description="Oferuję wykonanie projektów budowlanych oraz pomoc w przygotowaniu dokumentacji projektowej."
+  title="Projekty instalacji sanitarnych | Projekty Dębski"
+  description="Opracowuję projekty instalacji sanitarnych, w tym instalacji wodociągowych, kanalizacyjnych, centralnego ogrzewania, wentylacji mechanicznej, chłodniczych oraz przyłączy wodno-kanalizacyjnych."
 >
   <PageBanner
-    title="Projekty budowlane"
-    subtitle="Kompleksowe opracowanie dokumentacji projektowej."
+    title="Projekty instalacji sanitarnych"
+    subtitle="Opracowuję projekty techniczne instalacji sanitarnych dla budynków mieszkalnych oraz innych obiektów. Każdy projekt przygotowuję zgodnie z obowiązującymi przepisami, wymaganiami inwestora oraz zasadami wiedzy technicznej. Dbam o funkcjonalność, bezpieczeństwo i poprawność dokumentacji."
+    image="/images/services/Projekty-SCHEMAT.webp"
   />
 
-  <section class="section">
-    <div class="container">
 
-      <div class="mx-auto max-w-4xl">
 
-        <h2 class="mb-6">
-          Projekty budowlane
-        </h2>
+  <ProjectServices />
 
-        <p class="mb-6">
-          Oferuję wykonanie projektów budowlanych dostosowanych do obowiązujących
-          przepisów oraz indywidualnych potrzeb inwestora.
-        </p>
-
-        <p class="mb-6">
-          Zakres opracowania zależy od rodzaju inwestycji i obejmuje przygotowanie
-          dokumentacji niezbędnej do realizacji przedsięwzięcia.
-        </p>
-
-        <p>
-          Na stronie znajdziesz informacje o przebiegu współpracy, wymaganych
-          dokumentach oraz odpowiedzi na najczęściej zadawane pytania.
-        </p>
-
-      </div>
-
-    </div>
-  </section>
+  <ProjectCta />
 
 </Base>

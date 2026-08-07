@@ -1,0 +1,34 @@
+---
+import { apartmentFaqs } from "@/data/faqs/apartment";
+---
+
+<section class="section-light pt-6 pb-20">
+  <div class="container">
+    <div class="mx-auto max-w-4xl">
+      <div class="mb-12 text-center">
+        <h2>
+          Najczęściej zadawane pytania
+        </h2>
+
+        <p class="mt-4 text-text">
+          Odpowiedzi na pytania, które najczęściej zadają właściciele mieszkań
+          przed zamówieniem świadectwa charakterystyki energetycznej.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        {
+          apartmentFaqs.map((faq) => (
+            <article class="rounded-xl bg-white p-8 shadow-sm">
+              <h3 class="mb-3 text-xl font-semibold">
+                {faq.question}
+              </h3>
+
+              <p>{faq.answer}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

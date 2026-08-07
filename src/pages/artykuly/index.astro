@@ -1,0 +1,171 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+import Base from "@/layouts/Base.astro";
+import { getListPage, getSinglePage } from "@/lib/contentParser.astro";
+import { getTaxonomy } from "@/lib/taxonomyParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import { humanize } from "@/lib/utils/textConverter";
+
+const BLOG_FOLDER = "blog";
+
+const postIndex = await getListPage(BLOG_FOLDER, "-index");
+
+const buildDrafts = process.argv.includes("--buildDrafts");
+
+if (!buildDrafts && postIndex.data.draft) {
+  return Astro.redirect("/404");
+}
+
+const posts = await getSinglePage(BLOG_FOLDER);
+
+const sortedPosts = sortByDate(posts);
+
+const categories = await getTaxonomy(BLOG_FOLDER, "categories");
+---
+
+<Base
+  title={postIndex.data.title}
+  meta_title={postIndex.data.meta_title}
+  image={postIndex.data.image}
+  description={postIndex.data.description}
+>
+
+<section class="pt-12 pb-20">
+
+<div class="container">
+
+<div class="mb-12">
+
+<h1 class="mb-8 text-center">
+Artykuły
+</h1>
+
+<div
+id="category-filters"
+class="flex flex-wrap justify-center gap-3"
+>
+
+<button
+class="filter-btn active rounded-full border border-brand bg-brand px-5 py-2 font-semibold text-white transition"
+data-category="all"
+>
+
+Wszystkie
+
+</button>
+
+{
+categories.map((category) => (
+
+<button
+class="filter-btn rounded-full border border-brand px-5 py-2 font-semibold text-brand transition hover:bg-brand hover:text-white"
+data-category={category}
+>
+
+{humanize(category)}
+
+</button>
+
+))
+}
+
+</div>
+
+</div>
+
+<div
+id="articles-grid"
+class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+>
+
+{
+sortedPosts.map((post) => (
+
+<div
+class="article-item"
+data-categories={post.data.categories
+.map((c:string)=>c.toLowerCase().replace(/\s+/g,"-"))
+.join(",")}
+>
+
+<BlogCard data={post} />
+
+</div>
+
+))
+}
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+const articles = document.querySelectorAll<HTMLElement>(".article-item");
+const allButton = document.querySelector<HTMLButtonElement>(
+  '[data-category="all"]',
+);
+
+let selected: string[] = [];
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const category = button.dataset.category;
+
+    if (!category) return;
+
+    if (category === "all") {
+      selected = [];
+
+      buttons.forEach((btn) => {
+        btn.classList.remove("bg-brand", "text-white");
+        btn.classList.add("text-brand");
+      });
+
+      button.classList.add("bg-brand", "text-white");
+
+      articles.forEach((article) => {
+        article.style.display = "block";
+      });
+
+      return;
+    }
+
+    allButton?.classList.remove("bg-brand", "text-white");
+
+    if (selected.includes(category)) {
+      selected = selected.filter((c) => c !== category);
+
+      button.classList.remove("bg-brand", "text-white");
+      button.classList.add("text-brand");
+    } else {
+      selected.push(category);
+
+      button.classList.add("bg-brand", "text-white");
+      button.classList.remove("text-brand");
+    }
+
+    if (selected.length === 0) {
+      allButton?.classList.add("bg-brand", "text-white");
+
+      articles.forEach((article) => {
+        article.style.display = "block";
+      });
+
+      return;
+    }
+
+    articles.forEach((article) => {
+      const cats = article.dataset.categories?.split(",") ?? [];
+
+      const visible = selected.some((cat) => cats.includes(cat));
+
+      article.style.display = visible ? "block" : "none";
+    });
+  });
+});
+</script>
+
+</Base>

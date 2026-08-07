@@ -5,36 +5,32 @@ import ServiceCard from "@/components/ServiceCard.astro";
 
 <section class="section pt-0">
   <div class="container">
-
     <div class="mx-auto mb-12 max-w-3xl text-center">
-
-      <h2>
-        Dla jakiego budynku potrzebujesz świadectwa?
-      </h2>
+<h2>Wybierz rodzaj nieruchomości</h2>
 
       <p class="mt-4 text-text">
-        Wybierz rodzaj nieruchomości, aby poznać szczegółowe informacje.
+        Przygotowuje świadectwa charakterystyki energetycznej dla mieszkań oraz domów jednorodzinnych. Wybierz rodzaj nieruchomości, aby poznać szczegóły usługi.
       </p>
-
     </div>
 
     <div class="grid gap-8 lg:grid-cols-2">
-
       <ServiceCard
         title="Świadectwo dla mieszkania"
-        description="Informacje dotyczące mieszkań i lokali mieszkalnych."
-        href="/swiadectwa/mieszkanie"
-        image="/images/services/sche-kwiaty.jpg"
+        description="Świadectwa charakterystyki energetycznej dla mieszkań w budynkach wielorodzinnych."
+        href="/swiadectwa/mieszkanie"        
+image="/images/services/sche-blok.webp"
+        imageWidth={1200}
+        imageHeight={1600}
       />
 
       <ServiceCard
         title="Świadectwo dla domu jednorodzinnego"
-        description="Informacje dotyczące domów jednorodzinnych."
+        description="Świadectwa charakterystyki energetycznej dla domów jednorodzinnych."
         href="/swiadectwa/dom-jednorodzinny"
-        image="/images/services/sanitarne.jpg"
+image="/images/services/sche-dom.webp"
+        imageWidth={1280}
+        imageHeight={960}
       />
-
     </div>
-
   </div>
 </section>

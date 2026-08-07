@@ -1,0 +1,26 @@
+---
+/**
+ * Komponent odpowiedzialny wyłącznie za wyświetlenie
+ * listy artykułów w postaci siatki.
+ *
+ * Nie pobiera danych i ich nie filtruje.
+ */
+
+import ArticleCard from "./ArticleCard.astro";
+
+interface Props {
+  articles: any[];
+}
+
+const { articles } = Astro.props;
+---
+
+<div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+
+  {
+    articles.map((article) => (
+      <ArticleCard data={article} />
+    ))
+  }
+
+</div>

@@ -6,7 +6,13 @@
         "body": "#fff",
         "border": "#eaeaea",
         "light": "#f6f6f6",
-        "dark": "#040404"
+        "dark": "#040404",
+        "brand": "#002E6B",
+        "navy": "#0B4F83",
+        "navy-light": "#17649B",
+        "mist": "#F2F8FD",
+        "sand": "#D8B36A",
+        "sand-light": "#E5C98F"
       },
       "text_color": {
         "text": "#444444",

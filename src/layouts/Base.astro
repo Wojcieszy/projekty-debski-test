@@ -1,5 +1,4 @@
 ---
-import TwSizeIndicator from "@/components/TwSizeIndicator.astro";
 import config from "@/config/config.json";
 import theme from "@/config/theme.json";
 import { plainify } from "@/lib/utils/textConverter";
@@ -11,9 +10,8 @@ import {
   GoogleTagmanagerNoscript,
 } from "@digi4care/astro-google-tagmanager";
 import { Font } from "astro:assets";
-import { ClientRouter } from "astro:transitions";
-import Announcement from "./helpers/Announcement";
-import SearchModal from "./helpers/SearchModal";
+
+
 
 // font families - extract font names for Font component (filter out type keys)
 const fontEntries = Object.entries(theme.fonts.font_family).filter(
@@ -27,16 +25,16 @@ export interface Props {
   description?: string;
   image?: string;
   noindex?: boolean;
-  canonical?: string;
+
 }
 
 // destructure frontmatter
-const { title, meta_title, description, image, noindex, canonical } =
+const { title, meta_title, description, image, noindex, } =
   Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="pl">
   <head>
     <!-- google tag manager -->
     {
@@ -82,7 +80,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     </title>
 
     <!-- canonical url -->
-    {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
+<link rel="canonical" href={Astro.url.href} />
 
     <!-- noindex robots -->
     {noindex && <meta name="robots" content="noindex,nofollow" />}
@@ -95,7 +93,7 @@ const { title, meta_title, description, image, noindex, canonical } =
       )}
     />
 
-    <ClientRouter />
+
 
     <!-- author from config.json -->
     <meta name="author" content={config.metadata.meta_author} />
@@ -115,10 +113,10 @@ const { title, meta_title, description, image, noindex, canonical } =
         description ? description : config.metadata.meta_description,
       )}
     />
-    <meta property="og:type" content="website" />
+<meta property="og:site_name" content="Projekty Dębski" />
     <meta
       property="og:url"
-      content={`${config.site.base_url}/${Astro.url.pathname.replace("/", "")}`}
+content={Astro.url.href}
     />
 
     <!-- twitter-title -->
@@ -153,6 +151,7 @@ const { title, meta_title, description, image, noindex, canonical } =
       }`}
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:locale" content="pl_PL" />
   </head>
   <body class="flex flex-col min-h-screen">
     {/* google tag manager noscript */}
@@ -161,13 +160,12 @@ const { title, meta_title, description, image, noindex, canonical } =
         <GoogleTagmanagerNoscript id={config.google_tag_manager.gtm_id} />
       )
     }
-    <Announcement client:only="react" />
+
     <Header />
-    <SearchModal client:only="react" />
+
     <main class="grow" id="main-content">
       <slot />
     </main>
     <Footer />
-    <TwSizeIndicator />
   </body>
 </html>

@@ -1,0 +1,34 @@
+---
+import { houseFaqs } from "@/data/faqs/house";
+---
+
+<section class="section pt-0">
+  <div class="container">
+
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h2>Najczęściej zadawane pytania</h2>
+
+      <p class="mt-4 text-text">
+        Odpowiedzi na najczęściej pojawiające się pytania dotyczące świadectw
+        charakterystyki energetycznej dla domów jednorodzinnych.
+      </p>
+    </div>
+
+    <div class="mx-auto max-w-4xl space-y-6">
+      {
+        houseFaqs.map((faq) => (
+          <article class="rounded-xl border border-border bg-white p-6 shadow-sm">
+            <h3 class="mb-3 text-xl font-semibold">
+              {faq.question}
+            </h3>
+
+            <p class="text-text">
+              {faq.answer}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>
