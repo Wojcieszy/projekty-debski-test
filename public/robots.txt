@@ -1,4 +1,9 @@
+# Zezwól wszystkim robotom na indeksowanie strony
 User-agent: *
 Allow: /
 
+# Zablokuj jedynie endpointy API
 Disallow: /api/*
+
+# Wskaż lokalizację mapy witryny
+Sitemap: https://projektydebski.pl/sitemap-index.xml
