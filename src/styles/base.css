@@ -17,17 +17,17 @@ h6 {
 
 h1,
 .h1 {
-  @apply text-h1-sm md:text-h1;
+  @apply text-h1;
 }
 
 h2,
 .h2 {
-  @apply text-h2-sm md:text-h2;
+  @apply text-h2;
 }
 
 h3,
 .h3 {
-  @apply text-h3-sm md:text-h3;
+  @apply text-h3;
 }
 
 h4,
@@ -60,4 +60,17 @@ blockquote > p {
 
 button {
   @apply cursor-pointer;
+}
+/* Style tylko dla treści artykułów */
+
+.content ul {
+  @apply my-6 list-disc pl-6;
+}
+
+.content ol {
+  @apply my-6 list-decimal pl-6;
+}
+
+.content li {
+  @apply mb-2 text-base leading-relaxed;
 }

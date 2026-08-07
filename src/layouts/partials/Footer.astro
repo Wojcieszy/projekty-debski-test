@@ -1,47 +1,44 @@
 ---
-import Logo from "@/components/Logo.astro";
 import Social from "@/components/Social.astro";
 import config from "@/config/config.json";
-import menu from "@/config/menu.json";
 import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
-
-const { footer }: { footer: { name: string; url: string }[] } = menu;
 ---
 
-<footer class="bg-brand text-white">
+<footer class="bg-navy text-white">
+
+  <!-- Górna część stopki -->
   <div class="container">
-    <div class="row items-center py-10">
-      <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
-        <Logo />
-      </div>
-      <div class="mb-8 text-center lg:col-6 lg:mb-0">
-        <ul>
-          {
-            footer.map((menu) => (
-              <li class="m-3 inline-block">
-                <a
-                  class="rounded-sm text-white/85 transition hover:text-sand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-                  href={menu.url}
-                >
-                  {menu.name}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-      <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:mt-0 lg:text-right">
+
+    <div class="flex justify-end py-2">
+
+      <div class="flex items-center gap-6">
+
+        <a
+          href="/polityka-prywatnosci"
+          class="text-sm text-white/70 transition-colors duration-200 hover:text-white"
+        >
+          Polityka prywatności
+        </a>
+
         <Social
           source={social.main}
           className="social-icons footer-social-icons"
         />
+
       </div>
+
     </div>
+
   </div>
-  <div class="border-t border-white/15 py-5">
-    <div class="container text-center text-sm text-white/65">
+
+  <!-- Dolna część z copyright -->
+  <div class="border-t border-white/10 py-2">
+
+    <div class="container text-center text-sm text-white/70">
       <p set:html={markdownify(config.params.copyright)} />
     </div>
+
   </div>
+
 </footer>

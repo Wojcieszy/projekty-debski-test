@@ -1,0 +1,82 @@
+---
+/**
+ * Sekcja artykułów.
+ *
+ * Odpowiada wyłącznie za:
+ * - pobranie artykułów,
+ * - wyświetlenie nagłówka,
+ * - wybór sposobu prezentacji.
+ */
+
+import ArticleGrid from "./ArticleGrid.astro";
+import ArticleSlider from "./ArticleSlider.astro";
+
+import { getArticles } from "@/lib/articles";
+
+interface Props {
+  title?: string;
+
+  layout?: "grid" | "slider";
+
+  limit?: number;
+
+  featured?: boolean;
+
+  services?: string[];
+
+  propertyTypes?: string[];
+
+  categories?: string[];
+
+  locations?: string[];
+}
+
+const {
+  title = "Artykuły",
+
+  layout = "grid",
+
+  limit,
+
+  featured,
+
+  services = [],
+
+  propertyTypes = [],
+
+  categories = [],
+
+  locations = [],
+} = Astro.props;
+
+const articles = await getArticles({
+  featured,
+  services,
+  propertyTypes,
+  categories,
+  locations,
+  limit,
+});
+---
+
+<section class="section section-light pt-10">
+  <div class="container">
+
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+
+      <h2>{title}</h2>
+
+    </div>
+
+    {
+      layout === "grid"
+        ? (
+            <ArticleGrid articles={articles} />
+          )
+        : (
+            <ArticleSlider articles={articles} />
+          )
+    }
+
+  </div>
+</section>

@@ -1,0 +1,110 @@
+---
+import config from "@/config/config.json";
+import dateFormat from "@/lib/utils/dateFormat";
+import { humanize, slugify } from "@/lib/utils/textConverter";
+import { FaArrowRight, FaRegFolder } from "react-icons/fa";
+import ImageMod from "@/layouts/components/ImageMod.astro";
+
+const { blog_folder } = config.settings;
+
+const { data } = Astro.props;
+
+const {
+  title,
+  description,
+  image,
+  date,
+  author,
+  categories,
+} = data.data;
+---
+
+<article
+  class="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-body transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-darkmode-body"
+>
+
+  {
+    image && (
+      <a href={`/${blog_folder}/${data.id}`} aria-label={title}>
+        <ImageMod
+          src={image}
+          alt={title}
+          width={600}
+          height={340}
+          class="aspect-[16/9] w-full object-cover transition duration-300 group-hover:scale-105"
+          format="webp"
+        />
+      </a>
+    )
+  }
+
+  <div class="flex flex-1 flex-col p-6">
+
+    <div class="mb-4 flex flex-wrap items-center gap-4 text-sm text-text-light">
+
+<span class="text-text-light">
+  {humanize(author)}
+</span>
+
+      {
+        date && (
+          <span>{dateFormat(date)}</span>
+        )
+      }
+
+    </div>
+
+    <h3 class="mb-4 text-2xl leading-tight">
+
+      <a
+        href={`/${blog_folder}/${data.id}`}
+        class="transition-colors duration-200 group-hover:text-primary"
+      >
+        {title}
+      </a>
+
+    </h3>
+
+    {
+      description && (
+        <p class="mb-6 flex-grow">
+          {description}
+        </p>
+      )
+    }
+
+    {
+      categories.length > 0 && (
+        <div class="mb-6 flex flex-wrap gap-2">
+
+          {
+            categories.map((category: string) => (
+              <a
+                href={`/categories/${slugify(category)}`}
+                class="rounded-full bg-theme-light px-3 py-1 text-sm transition hover:bg-primary hover:text-white"
+              >
+                <FaRegFolder className="mr-1 inline-block" />
+
+                {humanize(category)}
+
+              </a>
+            ))
+          }
+
+        </div>
+      )
+    }
+
+    <a
+      href={`/${blog_folder}/${data.id}`}
+      class="mt-auto inline-flex items-center font-semibold text-primary"
+    >
+      Czytaj więcej
+
+      <FaArrowRight className="ml-2 transition-transform duration-200 group-hover:translate-x-1" />
+
+    </a>
+
+  </div>
+
+</article>

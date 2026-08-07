@@ -1,0 +1,74 @@
+---
+/**
+ * Slider artykułów oparty o astro-swiper.
+ */
+
+import ArticleCard from "./ArticleCard.astro";
+import type { BlogArticle } from "@/lib/articles";
+
+import {
+  Swiper,
+  SwiperWrapper,
+  SwiperSlide,
+  SwiperButtonPrev,
+  SwiperButtonNext,
+  type AstroSwiperOptions,
+} from "astro-swiper";
+
+interface Props {
+  articles: BlogArticle[];
+}
+
+const { articles } = Astro.props;
+
+const swiperOptions: AstroSwiperOptions = {
+  loop: true,
+
+  navigation: {
+    prevEl: ".article-slider-prev",
+    nextEl: ".article-slider-next",
+  },
+
+  spaceBetween: 24,
+
+  slidesPerView: 1,
+
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+    },
+
+    1200: {
+      slidesPerView: 3,
+    },
+  },
+};
+---
+
+<div class="relative">
+
+  <Swiper options={swiperOptions} class="article-slider">
+
+    <SwiperWrapper>
+
+      {
+        articles.map((article) => (
+          <SwiperSlide>
+            <ArticleCard data={article} />
+          </SwiperSlide>
+        ))
+      }
+
+    </SwiperWrapper>
+
+    <SwiperButtonPrev
+      class="article-slider-prev"
+    />
+
+    <SwiperButtonNext
+      class="article-slider-next"
+    />
+
+  </Swiper>
+
+</div>

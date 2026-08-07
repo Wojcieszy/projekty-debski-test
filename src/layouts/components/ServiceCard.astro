@@ -5,22 +5,37 @@ interface Props {
   title: string;
   description: string;
   href: string;
+
+  // Ścieżka do obrazu
   image: string;
+
+  // Opcjonalny tekst alternatywny.
+  // Jeżeli nie zostanie podany, użyty będzie tytuł karty.
+  imageAlt?: string;
+
+  // Wymiary obrazu wymagane przez astro:assets
   imageWidth: number;
   imageHeight: number;
 }
 
-const { title, description, href, image, imageWidth, imageHeight } =
-  Astro.props;
+const {
+  title,
+  description,
+  href,
+  image,
+  imageAlt = title,
+  imageWidth,
+  imageHeight,
+} = Astro.props;
 ---
 
 <article
-  class="group flex h-full min-h-[33rem] flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md focus-within:ring-2 focus-within:ring-navy focus-within:ring-offset-4"
+  class="group flex h-full min-h-[33rem] self-stretch flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md focus-within:ring-2 focus-within:ring-navy focus-within:ring-offset-4"
 >
   <div class="h-60 overflow-hidden md:h-64">
     <Image
       src={image}
-      alt={title}
+      alt={imageAlt}
       width={imageWidth}
       height={imageHeight}
       class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
@@ -29,7 +44,9 @@ const { title, description, href, image, imageWidth, imageHeight } =
 
   <div class="flex flex-1 flex-col p-8 lg:p-10">
     <h3 class="text-2xl leading-tight text-text-dark">{title}</h3>
-    <p class="mt-5 text-lg leading-relaxed text-text">{description}</p>
+<p class="mt-5 flex-1 text-lg leading-relaxed text-text">
+  {description}
+</p>
     <a
       class="mt-auto inline-flex min-h-11 w-fit items-center rounded-sm bg-navy px-5 py-2.5 font-semibold text-white transition hover:bg-navy-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy"
       href={href}

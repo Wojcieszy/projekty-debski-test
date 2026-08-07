@@ -1,0 +1,55 @@
+---
+import ServiceCard from "@/components/ServiceCard.astro";
+
+interface Service {
+  title: string;
+  description: string;
+  href: string;
+  image: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageAlt?: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  services: Service[];
+}
+
+const {
+  title = "Zobacz również",
+  subtitle = "Sprawdź pozostałe usługi związane ze świadectwami charakterystyki energetycznej.",
+  services,
+} = Astro.props;
+---
+
+<section class="section pt-0">
+  <div class="container">
+
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h2>{title}</h2>
+
+      <p class="mt-4 text-text">
+        {subtitle}
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-3">
+      {
+        services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            href={service.href}
+            image={service.image}
+            imageWidth={service.imageWidth}
+            imageHeight={service.imageHeight}
+            imageAlt={service.imageAlt}
+          />
+        ))
+      }
+    </div>
+
+  </div>
+</section>

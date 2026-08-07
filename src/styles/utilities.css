@@ -10,3 +10,11 @@
 @utility form-label {
   @apply mb-4 block font-secondary text-xl font-normal text-text-dark dark:text-darkmode-text-light;
 }
+/* Tła sekcji używane na podstronach */
+@utility section-light {
+  @apply bg-slate-50;
+}
+
+@utility section-white {
+  @apply bg-white;
+}

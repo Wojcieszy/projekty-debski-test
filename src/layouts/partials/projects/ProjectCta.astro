@@ -1,0 +1,28 @@
+---
+import { projectService } from "@/data/services/projects";
+---
+
+<section class="section">
+  <div class="container">
+
+    <div class="rounded-2xl bg-brand px-8 py-16 text-center text-white">
+
+      <h2 class="text-white">
+        {projectService.cta.title}
+      </h2>
+
+      <p class="mx-auto mt-6 max-w-3xl text-lg text-white/90">
+        {projectService.cta.description}
+      </p>
+
+<a
+  href={projectService.cta.button.href}
+  class="mt-10 inline-flex min-h-13 items-center justify-center rounded-sm bg-sand px-7 py-3 font-semibold text-brand transition hover:bg-sand-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+>
+  {projectService.cta.button.label}
+</a>
+
+    </div>
+
+  </div>
+</section>

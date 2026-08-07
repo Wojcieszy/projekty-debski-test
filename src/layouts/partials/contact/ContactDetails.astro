@@ -1,0 +1,115 @@
+---
+import { contact } from "@/config/contact";
+import Icon from "@/components/Icon.astro";
+---
+
+<section class="section pt-18">
+  <div class="container">
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h2>Dane kontaktowe</h2>
+
+      <p class="mt-4 text-text">
+        Masz pytania dotyczące świadectwa charakterystyki energetycznej lub
+        projektu budowlanego? Skontaktuj się ze mną telefonicznie lub mailowo.
+        Chętnie odpowiem na wszystkie pytania.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+
+      <!-- Telefon -->
+      <article class="rounded-xl border border-border bg-white p-8 transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-theme-light text-theme">
+          <Icon name="phone" />
+        </div>
+
+        <h3 class="mb-3 text-xl font-semibold">
+          Telefon
+        </h3>
+
+        <a
+          href={contact.phoneHref}
+          class="text-lg font-semibold text-theme transition hover:underline"
+        >
+          {contact.phone}
+        </a>
+
+        <p class="mt-4 text-text">
+          To najszybszy sposób kontaktu. Jeśli nie odbiorę, oddzwonię najszybciej,
+          jak będzie to możliwe.
+        </p>
+
+      </article>
+
+      <!-- E-mail -->
+      <article class="rounded-xl border border-border bg-white p-8 transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-theme-light text-theme">
+          <Icon name="email" />
+        </div>
+
+        <h3 class="mb-3 text-xl font-semibold">
+          E-mail
+        </h3>
+
+        <a
+          href={contact.emailHref}
+          class="break-all text-lg font-semibold text-theme transition hover:underline"
+        >
+          {contact.email}
+        </a>
+
+        <p class="mt-4 text-text">
+          Prześlij wiadomość lub dokumentację. Odpowiadam możliwie najszybciej.
+        </p>
+
+      </article>
+
+      <!-- Obszar działania -->
+      <article class="rounded-xl border border-border bg-white p-8 transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-theme-light text-theme">
+          <Icon name="location" />
+        </div>
+
+        <h3 class="mb-3 text-xl font-semibold">
+          Obszar działania
+        </h3>
+
+        <p class="text-lg font-semibold text-theme">
+          {contact.area}
+        </p>
+
+        <p class="mt-4 text-text">
+          Projekty budowlane realizuję wraz z lokalnymi architektami, natomiast świadectwa
+          charakterystyki energetycznej wykonuję na terenie całej Polski.
+        </p>
+
+      </article>
+
+      <!-- Godziny kontaktu -->
+      <article class="rounded-xl border border-border bg-white p-8 transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-theme-light text-theme">
+          <Icon name="clock" />
+        </div>
+
+        <h3 class="mb-3 text-xl font-semibold">
+          Godziny kontaktu
+        </h3>
+
+        <p class="text-lg font-semibold text-theme">
+          {contact.hours}
+        </p>
+
+        <p class="mt-4 text-text">
+          Możesz również napisać wiadomość poza godzinami pracy. Odpowiem przy
+          najbliższej okazji.
+        </p>
+
+      </article>
+
+    </div>
+  </div>
+</section>

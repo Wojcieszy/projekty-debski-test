@@ -2,49 +2,106 @@
 /* Layout strony */
 import Base from "@/layouts/Base.astro";
 
+
+
 /* Baner */
 import PageBanner from "@/layouts/partials/PageBanner.astro";
+
+/* Sekcje dedykowane domom */
+
+import CardsSection from "@/layouts/partials/energy/CardsSection.astro";
+import { houseService } from "@/data/services/house";
+
+
+/* Wspólne sekcje */
+import HowItWorks from "@/layouts/partials/energy/HowItWorks.astro";
+import WhyChooseUs from "@/layouts/partials/energy/WhyChooseUs.astro";
+import EnergyCta from "@/layouts/partials/energy/EnergyCta.astro";
+import PriceCards from "@/layouts/components/PriceCards.astro";
+import RelatedServices from "@/layouts/components/RelatedServices.astro";
 ---
 
 <Base
   title="Świadectwo charakterystyki energetycznej dla domu jednorodzinnego"
   description="Wykonuję świadectwa charakterystyki energetycznej dla domów jednorodzinnych zgodnie z obowiązującymi przepisami."
+
 >
+
+
+
+
   <PageBanner
-    title="Świadectwo dla domu jednorodzinnego"
-    subtitle="Informacje o świadectwach charakterystyki energetycznej dla domów jednorodzinnych."
+    title="Świadectwo energetyczne dla domu jednorodzinnego"
+    subtitle="Potrzebujesz świadectwa energetycznego dla domu? Wykonuję świadectwa zgodnie z obowiązującymi przepisami. Zapewniam sprawną realizację oraz dokument gotowy do sprzedaży lub wynajmu."
+    image="/images/services/sche-dom.webp"
+    buttonText="Skontaktuj się"
+    buttonHref="/kontakt"
   />
 
-  <section class="section">
-    <div class="container">
 
-      <div class="mx-auto max-w-4xl">
 
-        <h2 class="mb-6">
-          Świadectwo charakterystyki energetycznej dla domu jednorodzinnego
-        </h2>
+<CardsSection
+  title={houseService.whenRequired.title}
+  description={houseService.whenRequired.description}
+  cards={houseService.whenRequired.cards}
+/>
 
-        <p class="mb-6">
-          Świadectwo charakterystyki energetycznej określa zapotrzebowanie domu
-          na energię niezbędną do jego użytkowania. Dokument jest sporządzany
-          zgodnie z obowiązującymi przepisami i może być wymagany przy sprzedaży
-          lub wynajmie nieruchomości.
-        </p>
+<CardsSection
+  title={houseService.documents.title}
+  description={houseService.documents.description}
+  cards={houseService.documents.cards}
+/>
 
-        <p class="mb-6">
-          Każdy dom jest inny, dlatego podczas opracowania świadectwa
-          uwzględniane są jego parametry techniczne, zastosowane materiały oraz
-          systemy ogrzewania i wentylacji.
-        </p>
+  <HowItWorks />
 
-        <p>
-          Poniżej znajdziesz informacje dotyczące wymaganych danych, przebiegu
-          realizacji oraz odpowiedzi na najczęściej zadawane pytania.
-        </p>
+  <PriceCards {...houseService.pricing} />
 
-      </div>
+  <WhyChooseUs
+    title="Dlaczego właściciele domów wybierają Projekty Dębski?"
+    subtitle="Zapewniam rzetelne opracowanie świadectwa charakterystyki energetycznej, terminową realizację oraz indywidualne podejście do każdego domu i jego dokumentacji."
+  />
 
-    </div>
-  </section>
+
+
+  <RelatedServices
+    services={[
+               {
+        title: "Świadectwo dla domów szkieletowych",
+        description:
+          "Budujesz się w technologi szkieletowej? Sprawdź informacje dotyczące świadectwa dla tego typu budynków.",
+        href: "/swiadectwa/mieszkanie/",
+        image: "/images/services/sche-dom.webp",
+        imageWidth: 960,
+        imageHeight: 640,
+        imageAlt:
+          "Świadectwo charakterystyki energetycznej dla domów szkieletowych prefabrykowanych",
+      },
+      {
+        title: "Świadectwa charakterystyki energetycznej",
+        description:
+          "Dowiedz się, jakie są przepisy obowiązujące w świadectwach charakterystyki energetycznej.",
+        href: "/swiadectwa/",
+        image: "/images/services/sche-kwiaty.jpg",
+        imageWidth: 960,
+        imageHeight: 640,
+        imageAlt:
+          "Świadectwa charakterystyki energetycznej dla mieszkań, domów i lokali użytkowych",
+      },
+      {
+        title: "Świadectwo dla mieszkania",
+        description:
+          "Sprawdź wymagania dotyczące świadectwa charakterystyki energetycznej dla mieszkania oraz przebieg realizacji usługi.",
+        href: "/swiadectwa/mieszkanie/",
+        image: "/images/services/sche-blok.webp",
+        imageWidth: 960,
+        imageHeight: 640,
+        imageAlt:
+          "Świadectwo charakterystyki energetycznej dla mieszkania",
+      },
+   
+    ]}
+  />
+
+  <EnergyCta />
 
 </Base>

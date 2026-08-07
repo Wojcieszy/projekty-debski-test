@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
   class="relative isolate flex min-h-[23rem] items-center overflow-hidden bg-navy py-12 sm:min-h-[25rem] lg:min-h-[28rem] lg:py-16"
 >
   <Image
-    src="/images/baner-blok.png"
+    src="/images/baner-blok.webp"
     alt=""
     width={1040}
     height={1512}
@@ -23,33 +23,39 @@ import { Image } from "astro:assets";
   </div>
 
   <div class="container w-full">
-    <div class="max-w-2xl">
-      <p
-        class="mb-4 font-secondary text-base font-bold tracking-[0.16em] text-white/80 uppercase"
+  <div class="max-w-4xl">
+
+    <h1 class="text-4xl leading-tight text-white sm:text-4xl lg:text-4xl">
+      <span class="block">
+        Świadectwa charakterystyki
+      </span>
+         <span class="block">
+        energetycznej i projekty sanitarne
+      </span>
+
+    </h1>
+
+<div class="mt-6 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
+  <p>
+    Zajmuję się wykonywaniem świadectw charakterystyki energetycznej oraz
+    projektowaniem instalacji sanitarnych. Każde opracowanie przygotowuję
+    zgodnie z obowiązującymi przepisami, z dbałością o jakość i terminowość.
+    Współpracuję z doświadczonymi projektantami i ekspertami w swoich
+    dziedzinach.
+  </p>
+</div>
+
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <a
+        class="inline-flex min-h-13 items-center justify-center rounded-sm bg-sand px-7 py-3 font-semibold text-brand transition hover:bg-sand-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        href="/kontakt"
       >
-        Projekty budowlane i instalacyjne
-      </p>
-      <h1 class="text-5xl leading-[0.95] text-white sm:text-6xl lg:text-7xl">
-        Projekty Dębski
-      </h1>
-      <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/90 md:text-xl">
-        Tworzymy projekty sanitarne oraz świadectwa charakterystyki
-        energetycznej — rzeczowo, terminowo i z dbałością o każdy detal.
-      </p>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <a
-          class="inline-flex min-h-13 items-center justify-center rounded-sm bg-sand px-7 py-3 font-semibold text-brand transition hover:bg-sand-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-          href="/kontakt"
-        >
-          Kontakt
-        </a>
-        <a
-          class="inline-flex min-h-13 items-center justify-center rounded-sm border border-white/70 px-7 py-3 font-semibold text-white transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-          href="#nasze-uslugi"
-        >
-          Zobacz ofertę
-        </a>
-      </div>
+        Kontakt
+      </a>
+
+
     </div>
+
   </div>
+</div>
 </section>

@@ -212,25 +212,27 @@ function normalizePattern(baseDir, pattern) {
 }
 
 async function discoverHtmlFiles(clientDir, excludePatterns, includePatterns) {
+  // Wzorce wyszukiwania względem katalogu dist
   const patterns =
     includePatterns?.length > 0
-      ? includePatterns.map((p) => normalizePattern(clientDir, p))
-      : [path.join(clientDir, "**/*.html")];
+      ? includePatterns
+      : ["**/*.html"];
 
-  const userExcludes = (excludePatterns || []).map((p) =>
-    normalizePattern(clientDir, p),
-  );
-
+  // Wykluczenia również względem katalogu dist
   const ignore = [
-    ...DEFAULT_EXCLUDES.map((p) => path.join(clientDir, p)),
-    ...userExcludes,
+    ...DEFAULT_EXCLUDES,
+    ...(excludePatterns || []),
   ];
 
-  let files = await glob(patterns, { ignore, absolute: true });
+  const files = await glob(patterns, {
+    cwd: clientDir,
+    ignore,
+    absolute: true,
+  });
 
-  files = files.filter((f) => fs.statSync(f).isFile() && f.endsWith(".html"));
-
-  return files.sort();
+  return files
+    .filter((file) => fs.statSync(file).isFile())
+    .sort();
 }
 
 function fileToUrlPath(filePath, clientDir) {
@@ -623,12 +625,14 @@ async function generateLlmsFiles() {
 
   // ── Step 1: Discover pre-rendered HTML files ────────────────────────────
   console.log("\n🔍 Discovering pre-rendered HTML files...");
-  const htmlFiles = await discoverHtmlFiles(
-    clientDir,
-    llms.exclude,
-    llms.include,
-  );
-  console.log(`   Found ${htmlFiles.length} pre-rendered HTML files`);
+const htmlFiles = await discoverHtmlFiles(
+  clientDir,
+  llms.exclude,
+  llms.include,
+);
+
+
+console.log(`   Found ${htmlFiles.length} pre-rendered HTML files`);
 
   const pages = [];
   const seenPaths = new Set();

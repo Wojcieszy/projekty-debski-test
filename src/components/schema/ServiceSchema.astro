@@ -1,0 +1,78 @@
+---
+import config from "@/config/config.json";
+
+export interface Props {
+  serviceName: string;
+  description: string;
+  url: string;
+  areaServed?: string;
+}
+
+const {
+  serviceName,
+  description,
+  url,
+  areaServed = "Polska",
+} = Astro.props;
+
+const serviceUrl = `${config.site.base_url}${url}`;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+
+  // Unikalny identyfikator usługi
+  "@id": `${serviceUrl}#service`,
+
+  // Nazwa usługi
+  name: serviceName,
+
+  // Typ usługi
+  serviceType: serviceName,
+
+  // Opis usługi
+  description,
+
+  // Adres URL usługi
+  url: serviceUrl,
+
+  // Obraz reprezentujący usługę
+  image: `${config.site.base_url}${config.metadata.meta_image}`,
+
+  // Język strony
+  inLanguage: "pl-PL",
+
+  // Firma świadcząca usługę
+  provider: {
+    "@type": "LocalBusiness",
+    "@id": `${config.site.base_url}#organization`,
+
+    name: config.company.name,
+    telephone: config.company.telephone,
+    email: config.company.email,
+
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: config.company.addressLocality,
+      addressRegion: config.company.addressRegion,
+      postalCode: config.company.postalCode,
+      addressCountry: config.company.addressCountry,
+    },
+  },
+
+  // Obszar świadczenia usług
+  areaServed: {
+    "@type": "Country",
+    name: areaServed,
+  },
+
+  // Informacja, że usługa jest dostępna
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+    url: serviceUrl,
+  },
+};
+---
+
+<script is:inline type="application/ld+json">

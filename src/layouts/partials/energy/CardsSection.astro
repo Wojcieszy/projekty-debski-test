@@ -1,0 +1,58 @@
+---
+interface Card {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  cards: Card[];
+}
+
+const {
+  title,
+  description,
+  cards,
+} = Astro.props;
+---
+
+<section class="section pt-18">
+  <div class="container">
+
+    <div class="mx-auto mb-12 max-w-4xl">
+
+      <h2 class="text-center">
+        {title}
+      </h2>
+
+      {
+        description && (
+          <p class="mt-6 text-left leading-relaxed text-text">
+            {description}
+          </p>
+        )
+      }
+
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        cards.map((card) => (
+          <article class="rounded-xl border border-border bg-white p-8 shadow-sm">
+
+            <h3 class="mb-4 text-2xl">
+              {card.title}
+            </h3>
+
+            <p class="text-text">
+              {card.description}
+            </p>
+
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

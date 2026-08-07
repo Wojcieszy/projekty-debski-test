@@ -1,18 +1,42 @@
-<section class="section">
+---
+import ImageMod from "@/components/ImageMod.astro";
+---
+
+<section class="section section-light pt-10">
   <div class="container">
 
-    <div class="mx-auto max-w-4xl text-center">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
 
-      <h2 class="mb-6">
-        Czym jest świadectwo charakterystyki energetycznej?
-      </h2>
+      <!-- Lewa kolumna -->
+      <div>
 
-      <p class="text-lg leading-8 text-text">
-        Świadectwo charakterystyki energetycznej określa zapotrzebowanie
-        budynku lub lokalu na energię potrzebną do jego użytkowania.
-        Dokument jest wymagany w określonych przypadkach sprzedaży,
-        wynajmu oraz oddawania budynków do użytkowania.
-      </p>
+        <h2 class="mb-6">
+          Czym jest świadectwo charakterystyki energetycznej?
+        </h2>
+
+        <p class="mb-6 text-lg leading-8 text-text">
+          Świadectwo charakterystyki energetycznej to dokument określający
+          zapotrzebowanie budynku lub lokalu na energię potrzebną do jego
+          użytkowania. Zawiera informacje dotyczące efektywności energetycznej
+          nieruchomości i jest sporządzane zgodnie z obowiązującymi przepisami.
+        </p>
+
+      
+
+      </div>
+
+      <!-- Prawa kolumna -->
+      <div>
+
+        <ImageMod
+          src="/images/services/swiadectwo-kot.webp"
+          alt="Świadectwo charakterystyki energetycznej oraz przepisy budowlane"
+          width={900}
+          height={900}
+          class="w-full rounded-lg shadow-lg"
+        />
+
+      </div>
 
     </div>
 

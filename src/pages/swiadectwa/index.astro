@@ -16,21 +16,34 @@ import HowItWorks from "@/partials/energy/HowItWorks.astro";
 import EnergyFaq from "@/partials/energy/EnergyFaq.astro";
 
 import EnergyCta from "@/partials/energy/EnergyCta.astro";
+
+import WhyChooseUs from "@/partials/energy/WhyChooseUs.astro";
+
+
+
 ---
 
 <Base
   title="Świadectwa charakterystyki energetycznej"
   description="Świadectwa charakterystyki energetycznej dla mieszkań, domów jednorodzinnych i lokali użytkowych."
+
 >
-  <PageBanner
-    title="Świadectwa charakterystyki energetycznej"
-    subtitle="Dokumenty zgodne z obowiązującymi przepisami dla mieszkań, domów i lokali użytkowych."
-  />
+
+
+
+ <PageBanner
+  title="Świadectwa charakterystyki energetycznej"
+  subtitle="Potrzebujesz świadectwa energetycznego dla domu lub mieszkania? Wykonujemy świadectwa zgodnie z obowiązującymi przepisami. Zapewniamy szybką realizację oraz dokument gotowy do wykorzystania przy sprzedaży, wynajmie lub zakończeniu budowy."
+  image="/images/services/sche-kwiaty.jpg"
+  buttonText="Skontaktuj się"
+  buttonHref="/kontakt"
+/>
 
 <EnergyIntro />
 <WhenRequired />
 <BuildingTypes />
 <HowItWorks />
+<WhyChooseUs />
 <EnergyFaq />
 <EnergyCta />
 </Base>

@@ -2,78 +2,52 @@ import { glob } from "astro/loaders";
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 
-const commonFields = {
-  title: z.string(),
-  description: z.string(),
-  meta_title: z.string().optional(),
-  // z.coerce.date() handles both Date objects and ISO string dates from frontmatter (Zod 4)
-  date: z.coerce.date().optional(),
-  image: z.string().optional(),
-  draft: z.boolean(),
-};
 
-// Post collection schema
+
+// Kolekcja artykułów
 const blogCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/blog" }),
   schema: z.object({
+    // Podstawowe informacje
     title: z.string(),
     meta_title: z.string().optional(),
     description: z.string().optional(),
     date: z.coerce.date().optional(),
     image: z.string().optional(),
+    cover_fit: z.boolean().optional(),
     author: z.string().default("Admin"),
-    // Use factory functions for mutable array defaults (Zod 4 best practice)
+
+    // Kategorie i tagi
     categories: z.array(z.string()).default(() => ["others"]),
     tags: z.array(z.string()).default(() => ["others"]),
+
+    // NOWE POLA
+
+    // Czy artykuł ma być promowany na stronie głównej
+    featured: z.boolean().optional(),
+
+    // Powiązanie z usługami
+    // np. swiadectwa, projekty, audyty
+    services: z.array(z.string()).optional(),
+
+    // Typ nieruchomości
+    // np. mieszkanie, dom, lokal
+    property_types: z.array(z.string()).optional(),
+
+    // Lokalizacja
+    // np. warszawa, piaseczno
+    locations: z.array(z.string()).optional(),
+
+    // Opcjonalny czas czytania
+    reading_time: z.number().optional(),
+
     draft: z.boolean().optional(),
   }),
 });
 
-// Author collection schema
-const authorsCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/authors" }),
-  schema: z.object({
-    ...commonFields,
-    social: z
-      .array(
-        z
-          .object({
-            name: z.string().optional(),
-            icon: z.string().optional(),
-            link: z.string().optional(),
-          })
-          .optional(),
-      )
-      .optional(),
-    draft: z.boolean().optional(),
-  }),
-});
 
-// Pages collection schema
-const pagesCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/pages" }),
-  schema: z.object({
-    ...commonFields,
-  }),
-});
 
-// about collection schema
-const aboutCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/about" }),
-  schema: z.object({
-    ...commonFields,
-  }),
-});
-
-// contact collection schema
-const contactCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/contact" }),
-  schema: z.object({
-    ...commonFields,
-  }),
-});
-
-// Homepage collection schema
+// Strona główna
 const homepageCollection = defineCollection({
   loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/homepage" }),
   schema: z.object({
@@ -87,6 +61,7 @@ const homepageCollection = defineCollection({
         link: z.string(),
       }),
     }),
+
     features: z.array(
       z.object({
         title: z.string(),
@@ -103,7 +78,7 @@ const homepageCollection = defineCollection({
   }),
 });
 
-// Call to Action collection schema
+// CTA
 const ctaSectionCollection = defineCollection({
   loader: glob({
     pattern: "call-to-action.{md,mdx}",
@@ -122,7 +97,7 @@ const ctaSectionCollection = defineCollection({
   }),
 });
 
-// Testimonials Section collection schema
+// Opinie
 const testimonialSectionCollection = defineCollection({
   loader: glob({
     pattern: "testimonial.{md,mdx}",
@@ -143,17 +118,11 @@ const testimonialSectionCollection = defineCollection({
   }),
 });
 
-// Export collections
+// Eksport kolekcji
 export const collections = {
-  // Pages
   homepage: homepageCollection,
   blog: blogCollection,
-  authors: authorsCollection,
-  pages: pagesCollection,
-  about: aboutCollection,
-  contact: contactCollection,
 
-  // sections
   ctaSection: ctaSectionCollection,
   testimonialSection: testimonialSectionCollection,
 };

@@ -1,0 +1,111 @@
+---
+interface PriceCard {
+  title: string;
+  description: string;
+  price?: string;
+  featured?: boolean;
+  variant?: "price" | "info";
+}
+
+interface Button {
+  text: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  cards: PriceCard[];
+  button: Button;
+}
+
+const { title, description, cards, button } = Astro.props;
+---
+
+<section class="section pt-0">
+  <div class="container">
+
+    <div class="mx-auto max-w-6xl">
+
+      <div class="mb-12 text-center">
+
+        <h2>{title}</h2>
+
+        <p class="mt-4 text-text">
+          {description}
+        </p>
+
+      </div>
+
+      <div class="grid gap-8 lg:grid-cols-3">
+
+        {
+          cards.map((card) => (
+            <article
+              class:list={[
+                "rounded-xl p-8 shadow-sm transition",
+
+                card.variant === "info"
+                  ? "border border-brand/20 bg-mist"
+                  : card.featured
+                    ? "border-2 border-brand bg-brand text-white shadow-lg text-center"
+                    : "bg-white text-center",
+              ]}
+            >
+              <h3
+                class:list={[
+                  "mb-4 text-xl font-semibold",
+                  card.featured && card.variant !== "info"
+                    ? "text-white"
+                    : card.variant === "info"
+                      ? "text-brand"
+                      : "",
+                ]}
+              >
+                {card.title}
+              </h3>
+
+              {
+                card.price && (
+                  <div
+                    class:list={[
+                      "mb-6 text-5xl font-bold",
+                      card.featured ? "" : "text-brand",
+                    ]}
+                  >
+                    {card.price}
+                  </div>
+                )
+              }
+
+              <p
+                class:list={[
+                  card.featured && card.variant !== "info"
+                    ? "text-white/90"
+                    : "",
+                ]}
+              >
+                {card.description}
+              </p>
+
+            </article>
+          ))
+        }
+
+      </div>
+
+      <div class="mt-10 text-center">
+
+<a
+  href={button.href}
+  class="inline-flex min-h-13 items-center justify-center rounded-sm bg-sand px-7 py-3 font-semibold text-brand transition hover:bg-sand-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+>
+  {button.text}
+</a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

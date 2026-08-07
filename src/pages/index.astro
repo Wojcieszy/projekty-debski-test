@@ -1,14 +1,22 @@
 ---
 import Base from "@/layouts/Base.astro";
 import Hero from "@/layouts/partials/Hero.astro";
-import HomeIntro from "@/layouts/partials/home/HomeIntro.astro";
+import GoogleReviews from "@/layouts/partials/home/GoogleReviews.astro";
 import ServicesTiles from "@/layouts/partials/home/ServicesTiles.astro";
-import WhyChooseUs from "@/layouts/partials/home/WhyChooseUs.astro";
----
+import WhyChooseUs from "@/layouts/partials/energy/WhyChooseUs.astro";
+import ArticleSection from "../components/Articles/ArticleSection.astro";
+  ---
 
 <Base>
   <Hero />
-  <HomeIntro />
+
   <ServicesTiles />
   <WhyChooseUs />
+<GoogleReviews />
+<ArticleSection
+  title="Przeczytaj również"
+  layout="slider"
+  limit={6}
+/>
 </Base>
+

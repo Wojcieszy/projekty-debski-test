@@ -4,13 +4,24 @@
     "base_url": "https://projektydebski.pl",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
+    "favicon": "/images/logo.png",
     "logo": "/images/logo.png",
     "logo_darkmode": "/images/logo-darkmode.png",
     "logo_width": "60",
     "logo_height": "60",
     "logo_text": "Projekty Dębski"
   },
+
+  "company": {
+  "name": "Projekty Dębski",
+  "owner": "Wojciech Dębski",
+  "telephone": "+48 504 176 035",
+  "email": "wojciech@projektydebski.pl",
+  "addressLocality": "Warszawa",
+  "addressRegion": "Mazowieckie",
+  "postalCode": "02-740",
+  "addressCountry": "PL"
+},
 
   "settings": {
     "search": false,
@@ -19,7 +30,7 @@
     "default_theme": "light",
     "pagination": 6,
     "summary_length": 200,
-    "blog_folder": "blog"
+  "blog_folder": "artykuly"
   },
 
   "announcement": {
@@ -52,7 +63,7 @@
 
   "metadata": {
     "meta_author": "Wojciech Dębski",
-    "meta_image": "/images/og-image.png",
+    "meta_image": "/images/service/Projekty-Kot.webp",
     "meta_description": "Świadectwa charakterystyki energetycznej oraz projekty sanitarne."
   },
 

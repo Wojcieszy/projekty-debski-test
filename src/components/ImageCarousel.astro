@@ -1,0 +1,152 @@
+---
+interface ImageItem {
+  src: string;
+  alt: string;
+  caption?: string;
+  source?: string;
+}
+
+interface Props {
+  images: ImageItem[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="image-carousel">
+  <div class="relative overflow-hidden rounded-xl border border-border bg-body">
+
+    {
+      images.map((image, index) => (
+ <figure
+  class:list={[
+    "carousel-slide",
+    index === 0 ? "block" : "hidden",
+  ]}
+>
+
+  <img
+    src={image.src}
+    alt={image.alt}
+    loading="lazy"
+    class="carousel-image mx-auto max-h-[450px] w-auto max-w-full cursor-zoom-in rounded-lg object-contain transition"
+  />
+
+  {(image.caption || image.source) && (
+    <figcaption class="border-t border-border bg-light px-5 py-4 text-sm dark:bg-darkmode-light">
+      {image.caption && (
+        <div class="font-semibold">
+          {image.caption}
+        </div>
+      )}
+
+      {image.source && (
+        <div class="mt-1 text-text">
+          Źródło: {image.source}
+        </div>
+      )}
+    </figcaption>
+  )}
+
+</figure>
+      ))
+    }
+
+    {
+      images.length > 1 && (
+        <>
+          <button
+            class="carousel-prev absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow transition hover:bg-white"
+            aria-label="Poprzednie zdjęcie"
+          >
+            ←
+          </button>
+
+          <button
+            class="carousel-next absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow transition hover:bg-white"
+            aria-label="Następne zdjęcie"
+          >
+            →
+          </button>
+
+          <div class="carousel-counter absolute bottom-4 right-4 rounded bg-black/70 px-3 py-1 text-sm text-white">
+            1 / {images.length}
+          </div>
+        </>
+      )
+    }
+<div
+  class="carousel-lightbox fixed inset-0 z-50 hidden items-center justify-center bg-black/90 p-8"
+>
+
+  <img
+    class="carousel-lightbox-image max-h-[95vh] max-w-[95vw] rounded-xl"
+    src=""
+    alt=""
+  />
+
+</div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll<HTMLElement>(".image-carousel").forEach((carousel) => {
+
+  const slides = carousel.querySelectorAll<HTMLElement>(".carousel-slide");
+  const prev = carousel.querySelector<HTMLButtonElement>(".carousel-prev");
+  const next = carousel.querySelector<HTMLButtonElement>(".carousel-next");
+  const counter = carousel.querySelector<HTMLElement>(".carousel-counter");
+
+  const lightbox = carousel.querySelector<HTMLElement>(".carousel-lightbox");
+  const lightboxImage = carousel.querySelector<HTMLImageElement>(".carousel-lightbox-image");
+
+  let current = 0;
+
+  function showSlide(index: number) {
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("hidden", i !== index);
+      slide.classList.toggle("block", i === index);
+    });
+
+    if (counter) {
+      counter.textContent = `${index + 1} / ${slides.length}`;
+    }
+
+  }
+
+  prev?.addEventListener("click", () => {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  });
+
+  next?.addEventListener("click", () => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  });
+
+  carousel.querySelectorAll<HTMLImageElement>(".carousel-image").forEach((img) => {
+
+    img.addEventListener("click", () => {
+
+      if (!lightbox || !lightboxImage) return;
+
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+
+    });
+
+  });
+
+  lightbox?.addEventListener("click", () => {
+
+    lightbox.classList.remove("flex");
+    lightbox.classList.add("hidden");
+
+  });
+
+});
+</script>

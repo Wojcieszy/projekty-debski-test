@@ -3,22 +3,13 @@
     {
       "name": "facebook",
       "icon": "FaFacebook",
-      "link": "https://www.facebook.com/"
+      "link": "https://www.facebook.com/ProjektyDebski"
     },
-    {
-      "name": "x",
-      "icon": "FaXTwitter",
-      "link": "https://x.com/"
-    },
-    {
-      "name": "github",
-      "icon": "FaGithub",
-      "link": "https://www.github.com/"
-    },
+
     {
       "name": "linkedin",
       "icon": "FaLinkedin",
-      "link": "https://www.linkedin.com/"
+      "link": "https://www.linkedin.com/in/projekty-debski/"
     }
   ]
 }

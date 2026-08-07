@@ -4,15 +4,35 @@
 
 /* navbar items */
 .navbar {
-  @apply relative flex min-h-16 flex-wrap items-center justify-between py-1.5 lg:min-h-16;
+  @apply relative flex min-h-12 flex-wrap items-center justify-between py-0.5 lg:min-h-1;
 }
-
 .navbar-brand {
   @apply flex min-w-0 items-center gap-3 rounded-sm font-secondary text-white outline-offset-4 focus-visible:outline-2 focus-visible:outline-white sm:gap-4;
 }
 
 .brand-mark {
-  @apply flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-md border border-white/30 bg-brand p-2 shadow-lg sm:h-22 sm:w-22 lg:-my-9 lg:h-34 lg:w-34 lg:p-3;
+  @apply flex
+    h-22
+    w-22
+    shrink-0
+    items-center
+    justify-center
+    overflow-hidden
+    rounded-md
+    border
+    border-white/30
+    bg-brand
+    p-1
+    shadow-lg
+
+    sm:h-24
+    sm:w-24
+
+    lg:-mb-10
+    lg:mt-0
+    lg:h-36
+    lg:w-36
+    lg:p-1;
 }
 
 .brand-name {
@@ -24,7 +44,7 @@
 }
 
 .nav-link {
-  @apply block cursor-pointer rounded-sm px-3 py-2 font-semibold text-white/85 transition hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-white lg:px-4 lg:py-2;
+  @apply block cursor-pointer rounded-sm px-3 py-2 text-lg font-semibold text-white/85 transition hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-white lg:px-4 lg:py-2;
 }
 
 .nav-link.active {
