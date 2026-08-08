@@ -2,8 +2,8 @@ export const contact = {
   phone: "+48 504 176 035",
   phoneHref: "tel:+48504176035",
 
-  email: "wojciech@projektydebski.pl",
-  emailHref: "mailto:wojciech@projektydebski.pl",
+  email: "projektydebski@gmail.com",
+  emailHref: "mailto:projektydebski@gmail.com",
 
   area: "Cała Polska",
 
